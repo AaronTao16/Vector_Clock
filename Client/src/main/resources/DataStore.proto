@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.rpc";
+
+message Data {
+  string key = 1;
+  string val = 2;
+}
+
+message Vector_clock {
+  repeated Server clocks = 1;
+}
+
+message Server {
+  string id = 1;
+  int64 clock = 2;
+  Data data = 3;
+}
+
+message Conflicts {
+  repeated Server server = 1;
+}
+
+service DataService {
+  rpc read (Data) returns(Data);
+  rpc add_update (Data) returns (stream Server);
+  rpc propagate(Vector_clock) returns (stream Server);
+}
