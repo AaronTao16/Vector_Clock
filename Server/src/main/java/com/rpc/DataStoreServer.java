@@ -17,7 +17,7 @@ public class DataStoreServer{
 
         // Build server
         Server server = ServerBuilder.forPort(optsMap.containsKey("PORT")?Integer.parseInt(optsMap.get("PORT").get(0)):SERVER_PORT)
-                .addService(new DataStoreServiceImpl(optsMap.get("HOST").get(0), optsMap.get("HOSTS"), optsMap.get("PORTS")))
+                .addService(new DataStoreServiceImpl(optsMap.get("HOST").get(0), optsMap.get("PORT").get(0),optsMap.get("HOSTS"), optsMap.get("PORTS")))
                 .build();
 
         // Start server

@@ -3,7 +3,6 @@ package com.rpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
-import io.grpc.stub.StreamObserver;
 
 import java.util.*;
 
@@ -77,18 +76,16 @@ public class DataStoreClient extends DataServiceGrpc.DataServiceImplBase{
     }
 
     private static void updateData(DataStore.Data data) {
-//        Iterator<DataStore.Server> res = dataServiceStub.addUpdate(data);
         boolean isConflict = false;
         try{
             Iterator<DataStore.Server> res = dataServiceStub.addUpdate(data);
+
             while (res.hasNext()){
                 DataStore.Server d = res.next();
                 if(d.getData().getKey().equals("No conflict"))
                     continue;
-                if(d.getData().getKey().equals("conflict")) {
-                    System.out.println("---conflicts---");
-                    isConflict = true;
-                }
+                System.out.println("---conflicts---");
+                isConflict = true;
                 System.out.println(d);
             }
         } catch (StatusRuntimeException e){
