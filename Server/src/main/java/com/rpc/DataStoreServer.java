@@ -9,7 +9,6 @@ import java.util.*;
 public class DataStoreServer{
 
     private static final int SERVER_PORT = 8000;
-    private static List<String> argsList = new ArrayList<>();
     private static final Map<String, List<String>> optsMap = new HashMap<>();
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -17,7 +16,9 @@ public class DataStoreServer{
 
         // Build server
         Server server = ServerBuilder.forPort(optsMap.containsKey("PORT")?Integer.parseInt(optsMap.get("PORT").get(0)):SERVER_PORT)
-                .addService(new DataStoreServiceImpl(optsMap.get("HOST").get(0), optsMap.get("PORT").get(0),optsMap.get("HOSTS"), optsMap.get("PORTS")))
+                .addService(new DataStoreServiceImpl(optsMap.get("HOST").get(0), optsMap.get("PORT").get(0),
+                        optsMap.get("HOSTS"), optsMap.get("PORTS"), Integer.parseInt(optsMap.get("Nw").get(0)),
+                        Integer.parseInt(optsMap.get("Nr").get(0))))
                 .build();
 
         // Start server
@@ -40,12 +41,10 @@ public class DataStoreServer{
                     case "-":
                         throw new IllegalArgumentException("Not a valid argument: "+args[i]);
                     case "-host":
-                        List<String> host = new ArrayList<>(Collections.singletonList(args[i + 1]));
-                        optsMap.put("HOST", host);
+                        optsMap.put("HOST", new ArrayList<>(Collections.singletonList(args[i + 1])));
                         break;
                     case "-hosts":
-                        List<String> hosts = new ArrayList<>(Arrays.asList(args[i+1].split(",")));
-                        optsMap.put("HOSTS", hosts);
+                        optsMap.put("HOSTS", new ArrayList<>(Arrays.asList(args[i+1].split(","))));
                         break;
                     case "-port":
                         List<String> port = new ArrayList<>(Collections.singletonList(args[i + 1]));
@@ -53,19 +52,24 @@ public class DataStoreServer{
                         else optsMap.put("PORT", port);
                         break;
                     case "-ports":
-                        List<String> ports = new ArrayList<>(Arrays.asList(args[i+1].split(",")));
-                        optsMap.put("PORTS", ports);
+                        optsMap.put("PORTS", new ArrayList<>(Arrays.asList(args[i+1].split(","))));
                         break;
                     case "-N":
-                        List<String> n = new ArrayList<>(Arrays.asList(args[i+1].split(",")));
-                        optsMap.put("N", n);
+                        optsMap.put("N", new ArrayList<>(Arrays.asList(args[i+1].split(","))));
+                        break;
+                    case "-Nw":
+                        optsMap.put("Nw", new ArrayList<>(Arrays.asList(args[i+1].split(","))));
+                        break;
+                    case "-Nr":
+                        optsMap.put("Nr", new ArrayList<>(Arrays.asList(args[i+1].split(","))));
                         break;
                     default:
                         throw new IllegalArgumentException("Not a valid argument: "+args[i] + "\n   -client [client_name,...] \n    -port <port>");
                 }
-            } else {
-                argsList.add(args[i]);
             }
+        }
+        if((optsMap.containsKey("Nw") && Integer.parseInt(optsMap.get("Nw").get(0)) < Integer.parseInt(optsMap.get("N").get(0))/2) || (optsMap.containsKey("Nr") && Integer.parseInt(optsMap.get("Nr").get(0)) < Integer.parseInt(optsMap.get("N").get(0))/2)){
+            throw new IllegalArgumentException("Nw/Nr should greater than " + optsMap.get("N").get(0));
         }
     }
 }

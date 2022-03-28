@@ -2351,6 +2351,1459 @@ public final class DataStore {
 
   }
 
+  public interface HeartbeatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Heartbeat)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.Node from = 1;</code>
+     * @return Whether the from field is set.
+     */
+    boolean hasFrom();
+    /**
+     * <code>.Node from = 1;</code>
+     * @return The from.
+     */
+    com.rpc.DataStore.Node getFrom();
+    /**
+     * <code>.Node from = 1;</code>
+     */
+    com.rpc.DataStore.NodeOrBuilder getFromOrBuilder();
+
+    /**
+     * <code>.Node leader = 2;</code>
+     * @return Whether the leader field is set.
+     */
+    boolean hasLeader();
+    /**
+     * <code>.Node leader = 2;</code>
+     * @return The leader.
+     */
+    com.rpc.DataStore.Node getLeader();
+    /**
+     * <code>.Node leader = 2;</code>
+     */
+    com.rpc.DataStore.NodeOrBuilder getLeaderOrBuilder();
+  }
+  /**
+   * Protobuf type {@code Heartbeat}
+   */
+  public  static final class Heartbeat extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Heartbeat)
+      HeartbeatOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Heartbeat.newBuilder() to construct.
+    private Heartbeat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Heartbeat() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Heartbeat();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Heartbeat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.rpc.DataStore.Node.Builder subBuilder = null;
+              if (from_ != null) {
+                subBuilder = from_.toBuilder();
+              }
+              from_ = input.readMessage(com.rpc.DataStore.Node.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(from_);
+                from_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.rpc.DataStore.Node.Builder subBuilder = null;
+              if (leader_ != null) {
+                subBuilder = leader_.toBuilder();
+              }
+              leader_ = input.readMessage(com.rpc.DataStore.Node.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(leader_);
+                leader_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.rpc.DataStore.internal_static_Heartbeat_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.rpc.DataStore.internal_static_Heartbeat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rpc.DataStore.Heartbeat.class, com.rpc.DataStore.Heartbeat.Builder.class);
+    }
+
+    public static final int FROM_FIELD_NUMBER = 1;
+    private com.rpc.DataStore.Node from_;
+    /**
+     * <code>.Node from = 1;</code>
+     * @return Whether the from field is set.
+     */
+    public boolean hasFrom() {
+      return from_ != null;
+    }
+    /**
+     * <code>.Node from = 1;</code>
+     * @return The from.
+     */
+    public com.rpc.DataStore.Node getFrom() {
+      return from_ == null ? com.rpc.DataStore.Node.getDefaultInstance() : from_;
+    }
+    /**
+     * <code>.Node from = 1;</code>
+     */
+    public com.rpc.DataStore.NodeOrBuilder getFromOrBuilder() {
+      return getFrom();
+    }
+
+    public static final int LEADER_FIELD_NUMBER = 2;
+    private com.rpc.DataStore.Node leader_;
+    /**
+     * <code>.Node leader = 2;</code>
+     * @return Whether the leader field is set.
+     */
+    public boolean hasLeader() {
+      return leader_ != null;
+    }
+    /**
+     * <code>.Node leader = 2;</code>
+     * @return The leader.
+     */
+    public com.rpc.DataStore.Node getLeader() {
+      return leader_ == null ? com.rpc.DataStore.Node.getDefaultInstance() : leader_;
+    }
+    /**
+     * <code>.Node leader = 2;</code>
+     */
+    public com.rpc.DataStore.NodeOrBuilder getLeaderOrBuilder() {
+      return getLeader();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (from_ != null) {
+        output.writeMessage(1, getFrom());
+      }
+      if (leader_ != null) {
+        output.writeMessage(2, getLeader());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (from_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getFrom());
+      }
+      if (leader_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getLeader());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.rpc.DataStore.Heartbeat)) {
+        return super.equals(obj);
+      }
+      com.rpc.DataStore.Heartbeat other = (com.rpc.DataStore.Heartbeat) obj;
+
+      if (hasFrom() != other.hasFrom()) return false;
+      if (hasFrom()) {
+        if (!getFrom()
+            .equals(other.getFrom())) return false;
+      }
+      if (hasLeader() != other.hasLeader()) return false;
+      if (hasLeader()) {
+        if (!getLeader()
+            .equals(other.getLeader())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFrom()) {
+        hash = (37 * hash) + FROM_FIELD_NUMBER;
+        hash = (53 * hash) + getFrom().hashCode();
+      }
+      if (hasLeader()) {
+        hash = (37 * hash) + LEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getLeader().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Heartbeat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Heartbeat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Heartbeat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.rpc.DataStore.Heartbeat prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Heartbeat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Heartbeat)
+        com.rpc.DataStore.HeartbeatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.rpc.DataStore.internal_static_Heartbeat_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.rpc.DataStore.internal_static_Heartbeat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.rpc.DataStore.Heartbeat.class, com.rpc.DataStore.Heartbeat.Builder.class);
+      }
+
+      // Construct using com.rpc.DataStore.Heartbeat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (fromBuilder_ == null) {
+          from_ = null;
+        } else {
+          from_ = null;
+          fromBuilder_ = null;
+        }
+        if (leaderBuilder_ == null) {
+          leader_ = null;
+        } else {
+          leader_ = null;
+          leaderBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.rpc.DataStore.internal_static_Heartbeat_descriptor;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Heartbeat getDefaultInstanceForType() {
+        return com.rpc.DataStore.Heartbeat.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Heartbeat build() {
+        com.rpc.DataStore.Heartbeat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Heartbeat buildPartial() {
+        com.rpc.DataStore.Heartbeat result = new com.rpc.DataStore.Heartbeat(this);
+        if (fromBuilder_ == null) {
+          result.from_ = from_;
+        } else {
+          result.from_ = fromBuilder_.build();
+        }
+        if (leaderBuilder_ == null) {
+          result.leader_ = leader_;
+        } else {
+          result.leader_ = leaderBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.rpc.DataStore.Heartbeat) {
+          return mergeFrom((com.rpc.DataStore.Heartbeat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.rpc.DataStore.Heartbeat other) {
+        if (other == com.rpc.DataStore.Heartbeat.getDefaultInstance()) return this;
+        if (other.hasFrom()) {
+          mergeFrom(other.getFrom());
+        }
+        if (other.hasLeader()) {
+          mergeLeader(other.getLeader());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.rpc.DataStore.Heartbeat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.rpc.DataStore.Heartbeat) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.rpc.DataStore.Node from_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder> fromBuilder_;
+      /**
+       * <code>.Node from = 1;</code>
+       * @return Whether the from field is set.
+       */
+      public boolean hasFrom() {
+        return fromBuilder_ != null || from_ != null;
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       * @return The from.
+       */
+      public com.rpc.DataStore.Node getFrom() {
+        if (fromBuilder_ == null) {
+          return from_ == null ? com.rpc.DataStore.Node.getDefaultInstance() : from_;
+        } else {
+          return fromBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       */
+      public Builder setFrom(com.rpc.DataStore.Node value) {
+        if (fromBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          from_ = value;
+          onChanged();
+        } else {
+          fromBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       */
+      public Builder setFrom(
+          com.rpc.DataStore.Node.Builder builderForValue) {
+        if (fromBuilder_ == null) {
+          from_ = builderForValue.build();
+          onChanged();
+        } else {
+          fromBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       */
+      public Builder mergeFrom(com.rpc.DataStore.Node value) {
+        if (fromBuilder_ == null) {
+          if (from_ != null) {
+            from_ =
+              com.rpc.DataStore.Node.newBuilder(from_).mergeFrom(value).buildPartial();
+          } else {
+            from_ = value;
+          }
+          onChanged();
+        } else {
+          fromBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       */
+      public Builder clearFrom() {
+        if (fromBuilder_ == null) {
+          from_ = null;
+          onChanged();
+        } else {
+          from_ = null;
+          fromBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       */
+      public com.rpc.DataStore.Node.Builder getFromBuilder() {
+        
+        onChanged();
+        return getFromFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       */
+      public com.rpc.DataStore.NodeOrBuilder getFromOrBuilder() {
+        if (fromBuilder_ != null) {
+          return fromBuilder_.getMessageOrBuilder();
+        } else {
+          return from_ == null ?
+              com.rpc.DataStore.Node.getDefaultInstance() : from_;
+        }
+      }
+      /**
+       * <code>.Node from = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder> 
+          getFromFieldBuilder() {
+        if (fromBuilder_ == null) {
+          fromBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder>(
+                  getFrom(),
+                  getParentForChildren(),
+                  isClean());
+          from_ = null;
+        }
+        return fromBuilder_;
+      }
+
+      private com.rpc.DataStore.Node leader_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder> leaderBuilder_;
+      /**
+       * <code>.Node leader = 2;</code>
+       * @return Whether the leader field is set.
+       */
+      public boolean hasLeader() {
+        return leaderBuilder_ != null || leader_ != null;
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       * @return The leader.
+       */
+      public com.rpc.DataStore.Node getLeader() {
+        if (leaderBuilder_ == null) {
+          return leader_ == null ? com.rpc.DataStore.Node.getDefaultInstance() : leader_;
+        } else {
+          return leaderBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       */
+      public Builder setLeader(com.rpc.DataStore.Node value) {
+        if (leaderBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          leader_ = value;
+          onChanged();
+        } else {
+          leaderBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       */
+      public Builder setLeader(
+          com.rpc.DataStore.Node.Builder builderForValue) {
+        if (leaderBuilder_ == null) {
+          leader_ = builderForValue.build();
+          onChanged();
+        } else {
+          leaderBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       */
+      public Builder mergeLeader(com.rpc.DataStore.Node value) {
+        if (leaderBuilder_ == null) {
+          if (leader_ != null) {
+            leader_ =
+              com.rpc.DataStore.Node.newBuilder(leader_).mergeFrom(value).buildPartial();
+          } else {
+            leader_ = value;
+          }
+          onChanged();
+        } else {
+          leaderBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       */
+      public Builder clearLeader() {
+        if (leaderBuilder_ == null) {
+          leader_ = null;
+          onChanged();
+        } else {
+          leader_ = null;
+          leaderBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       */
+      public com.rpc.DataStore.Node.Builder getLeaderBuilder() {
+        
+        onChanged();
+        return getLeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       */
+      public com.rpc.DataStore.NodeOrBuilder getLeaderOrBuilder() {
+        if (leaderBuilder_ != null) {
+          return leaderBuilder_.getMessageOrBuilder();
+        } else {
+          return leader_ == null ?
+              com.rpc.DataStore.Node.getDefaultInstance() : leader_;
+        }
+      }
+      /**
+       * <code>.Node leader = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder> 
+          getLeaderFieldBuilder() {
+        if (leaderBuilder_ == null) {
+          leaderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder>(
+                  getLeader(),
+                  getParentForChildren(),
+                  isClean());
+          leader_ = null;
+        }
+        return leaderBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Heartbeat)
+    }
+
+    // @@protoc_insertion_point(class_scope:Heartbeat)
+    private static final com.rpc.DataStore.Heartbeat DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.rpc.DataStore.Heartbeat();
+    }
+
+    public static com.rpc.DataStore.Heartbeat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Heartbeat>
+        PARSER = new com.google.protobuf.AbstractParser<Heartbeat>() {
+      @java.lang.Override
+      public Heartbeat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Heartbeat(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Heartbeat> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Heartbeat> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.rpc.DataStore.Heartbeat getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NodeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Node)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <code>string addr = 2;</code>
+     * @return The addr.
+     */
+    java.lang.String getAddr();
+    /**
+     * <code>string addr = 2;</code>
+     * @return The bytes for addr.
+     */
+    com.google.protobuf.ByteString
+        getAddrBytes();
+  }
+  /**
+   * Protobuf type {@code Node}
+   */
+  public  static final class Node extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Node)
+      NodeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Node.newBuilder() to construct.
+    private Node(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Node() {
+      addr_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Node();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Node(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              addr_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.rpc.DataStore.internal_static_Node_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.rpc.DataStore.internal_static_Node_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rpc.DataStore.Node.class, com.rpc.DataStore.Node.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    public long getId() {
+      return id_;
+    }
+
+    public static final int ADDR_FIELD_NUMBER = 2;
+    private volatile java.lang.Object addr_;
+    /**
+     * <code>string addr = 2;</code>
+     * @return The addr.
+     */
+    public java.lang.String getAddr() {
+      java.lang.Object ref = addr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        addr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string addr = 2;</code>
+     * @return The bytes for addr.
+     */
+    public com.google.protobuf.ByteString
+        getAddrBytes() {
+      java.lang.Object ref = addr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        addr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
+      if (!getAddrBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, addr_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
+      if (!getAddrBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, addr_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.rpc.DataStore.Node)) {
+        return super.equals(obj);
+      }
+      com.rpc.DataStore.Node other = (com.rpc.DataStore.Node) obj;
+
+      if (getId()
+          != other.getId()) return false;
+      if (!getAddr()
+          .equals(other.getAddr())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
+      hash = (37 * hash) + ADDR_FIELD_NUMBER;
+      hash = (53 * hash) + getAddr().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.rpc.DataStore.Node parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Node parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Node parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Node parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Node parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Node parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Node parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Node parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Node parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Node parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Node parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Node parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.rpc.DataStore.Node prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Node}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Node)
+        com.rpc.DataStore.NodeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.rpc.DataStore.internal_static_Node_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.rpc.DataStore.internal_static_Node_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.rpc.DataStore.Node.class, com.rpc.DataStore.Node.Builder.class);
+      }
+
+      // Construct using com.rpc.DataStore.Node.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+
+        addr_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.rpc.DataStore.internal_static_Node_descriptor;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Node getDefaultInstanceForType() {
+        return com.rpc.DataStore.Node.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Node build() {
+        com.rpc.DataStore.Node result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Node buildPartial() {
+        com.rpc.DataStore.Node result = new com.rpc.DataStore.Node(this);
+        result.id_ = id_;
+        result.addr_ = addr_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.rpc.DataStore.Node) {
+          return mergeFrom((com.rpc.DataStore.Node)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.rpc.DataStore.Node other) {
+        if (other == com.rpc.DataStore.Node.getDefaultInstance()) return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
+        if (!other.getAddr().isEmpty()) {
+          addr_ = other.addr_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.rpc.DataStore.Node parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.rpc.DataStore.Node) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long id_ ;
+      /**
+       * <code>int64 id = 1;</code>
+       * @return The id.
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object addr_ = "";
+      /**
+       * <code>string addr = 2;</code>
+       * @return The addr.
+       */
+      public java.lang.String getAddr() {
+        java.lang.Object ref = addr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          addr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string addr = 2;</code>
+       * @return The bytes for addr.
+       */
+      public com.google.protobuf.ByteString
+          getAddrBytes() {
+        java.lang.Object ref = addr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          addr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string addr = 2;</code>
+       * @param value The addr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        addr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string addr = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddr() {
+        
+        addr_ = getDefaultInstance().getAddr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string addr = 2;</code>
+       * @param value The bytes for addr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddrBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        addr_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Node)
+    }
+
+    // @@protoc_insertion_point(class_scope:Node)
+    private static final com.rpc.DataStore.Node DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.rpc.DataStore.Node();
+    }
+
+    public static com.rpc.DataStore.Node getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Node>
+        PARSER = new com.google.protobuf.AbstractParser<Node>() {
+      @java.lang.Override
+      public Node parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Node(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Node> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Node> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.rpc.DataStore.Node getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Data_descriptor;
   private static final 
@@ -2366,6 +3819,16 @@ public final class DataStore {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Server_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Heartbeat_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Heartbeat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Node_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Node_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2378,10 +3841,15 @@ public final class DataStore {
       "\n\017DataStore.proto\" \n\004Data\022\013\n\003key\030\001 \001(\t\022\013" +
       "\n\003val\030\002 \001(\t\"\'\n\014Vector_clock\022\027\n\006clocks\030\001 " +
       "\003(\0132\007.Server\"8\n\006Server\022\n\n\002id\030\001 \001(\t\022\r\n\005cl" +
-      "ock\030\002 \001(\003\022\023\n\004data\030\003 \001(\0132\005.Data2j\n\013DataSe" +
-      "rvice\022\024\n\004read\022\005.Data\032\005.Data\022\036\n\nadd_updat" +
-      "e\022\005.Data\032\007.Server0\001\022%\n\tpropagate\022\r.Vecto" +
-      "r_clock\032\007.Server0\001B\t\n\007com.rpcb\006proto3"
+      "ock\030\002 \001(\003\022\023\n\004data\030\003 \001(\0132\005.Data\"7\n\tHeartb" +
+      "eat\022\023\n\004from\030\001 \001(\0132\005.Node\022\025\n\006leader\030\002 \001(\013" +
+      "2\005.Node\" \n\004Node\022\n\n\002id\030\001 \001(\003\022\014\n\004addr\030\002 \001(" +
+      "\t2\277\001\n\013DataService\022\024\n\004read\022\005.Data\032\005.Data\022" +
+      "\036\n\nadd_update\022\005.Data\032\007.Server0\001\022%\n\tpropa" +
+      "gate\022\r.Vector_clock\032\007.Server0\001\022)\n\017send_h" +
+      "eartbeats\022\n.Heartbeat\032\n.Heartbeat\022(\n\016lea" +
+      "derElection\022\n.Heartbeat\032\n.HeartbeatB\t\n\007c" +
+      "om.rpcb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2405,6 +3873,18 @@ public final class DataStore {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Server_descriptor,
         new java.lang.String[] { "Id", "Clock", "Data", });
+    internal_static_Heartbeat_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_Heartbeat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Heartbeat_descriptor,
+        new java.lang.String[] { "From", "Leader", });
+    internal_static_Node_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_Node_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Node_descriptor,
+        new java.lang.String[] { "Id", "Addr", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -7,26 +7,134 @@ import io.grpc.stub.StreamObserver;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 
 public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
     private List<String> Replicas = new ArrayList<>(); // "host:port"
-    private String HOST; // store host
-    private String PORT; // store port
+    private ConcurrentHashMap<String, Long> AvailableReplicas = new ConcurrentHashMap<>(); // "host:port,id"
+    private String HOST, PORT; // store host and port
+    private DataStore.Node LEADER;
+    private Set<DataStore.Node> potentialLeader = ConcurrentHashMap.newKeySet();
+    private int Nw, Nr;
+    private long id;
     private static ManagedChannel channel;
     private static DataServiceGrpc.DataServiceBlockingStub dataServiceStub;
+    private static DataServiceGrpc.DataServiceBlockingStub heartBeatServiceStub;
     private static final ConcurrentHashMap<String, String> store = new ConcurrentHashMap<>(); // key-value store
     private static ConcurrentHashMap<String, Long> clock = new ConcurrentHashMap<>(); // local clocks <"host:port", clock>
     private static DataStore.Vector_clock vector_clock;
     private static DataStore.Server conflict = DataStore.Server.newBuilder().setData(DataStore.Data.newBuilder().setKey("No conflict").build()).build();
 
-    public DataStoreServiceImpl(String HOST, String PORT, List<String> HOSTS, List<String> PORTS){
+    public DataStoreServiceImpl(String HOST, String PORT, List<String> HOSTS, List<String> PORTS, int Nw, int Nr){
         this.HOST = HOST;
         this.PORT = PORT;
+        this.Nw = Nw;
+        this.Nr = Nr;
         clock.put(HOST+":"+PORT, 0L);
         for (int i = 0; i < HOSTS.size(); ++i) {
             clock.put(HOSTS.get(i)+":"+PORTS.get(i), 0L);
             Replicas.add(HOSTS.get(i)+":"+PORTS.get(i));
         }
+        this.id = System.currentTimeMillis();
+        this.sendHeartbeat(Replicas, DataStore.Heartbeat.newBuilder().setFrom(DataStore.Node.newBuilder().setId(id).setAddr(HOST+":"+PORT).build()).build());
+    }
+
+//    @Override
+//    public StreamObserver<DataStore.Heartbeat> sendHeartbeats(StreamObserver<DataStore.Heartbeat> responseObserver) {
+//        return new StreamObserver<DataStore.Heartbeat>() {
+//            @Override
+//            public void onNext(DataStore.Heartbeat heartbeat) {
+//                System.out.println("Received heartbeat:  \n{\n" + heartbeat + "}");
+//                responseObserver.onNext(DataStore.Heartbeat.newBuilder().setFrom(DataStore.Node.newBuilder().setId(id).setAddr(HOST+":"+PORT).build()).build());
+//            }
+//
+//            @Override
+//            public void onError(Throwable throwable) {
+//
+//            }
+//
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//        };
+//    }
+
+
+    @Override
+    public void sendHeartbeats(DataStore.Heartbeat request, StreamObserver<DataStore.Heartbeat> responseObserver) {
+        System.out.println(request);
+        System.out.println(request.hasLeader());
+        if(!request.hasLeader()){
+            responseObserver.onNext(DataStore.Heartbeat.newBuilder().setFrom(DataStore.Node.newBuilder().setId(id).setAddr(HOST+":"+PORT).build())
+                    .setLeader(LEADER).build());
+        }
+        responseObserver.onCompleted();
+    }
+
+    public void sendHeartbeat(List<String> replicas, DataStore.Heartbeat heartbeat){
+        for(String entry: replicas){
+            long start = System.currentTimeMillis();
+//            Thread object = new Thread(new Multithreading(entry, heartbeat));
+//            object.start();
+            AvailableReplicas.remove(entry);
+            broadcast(entry, heartbeat);
+            System.out.println("broadcast to " + entry + "   " + ((double)(System.currentTimeMillis()-start))/1000 + "s");
+        }
+
+        if(potentialLeader.isEmpty() && AvailableReplicas.isEmpty()){
+            LEADER = DataStore.Node.newBuilder().setId(id).setAddr(HOST+":"+PORT).build();
+        } else if (potentialLeader.size() > 1){
+            System.out.println("re-elect leader");
+        } else {
+            LEADER = potentialLeader.iterator().next();;
+        }
+
+        System.out.println(LEADER);
+    }
+
+    private void broadcast(String target, DataStore.Heartbeat heartbeat) {
+        String host = target.split(":")[0];
+        int port = Integer.parseInt(target.split(":")[1]);
+        channel = ManagedChannelBuilder.forAddress(host, port)
+                .usePlaintext()
+                .build();
+        heartBeatServiceStub = DataServiceGrpc.newBlockingStub(channel);
+
+//        StreamObserver<DataStore.Heartbeat> streamObserver = heartBeatServiceStub.withDeadlineAfter(2000, TimeUnit.MILLISECONDS).sendHeartbeats(new StreamObserver<DataStore.Heartbeat>() {
+//            @Override
+//            public void onNext(DataStore.Heartbeat heartbeat) {
+//                System.out.println("Received heartbeat:  \n{\n" + heartbeat + "}");
+//                AvailableReplicas.put(heartbeat.getFrom().getId(), heartbeat.getFrom().getAddr());
+//            }
+//
+//            @Override
+//            public void onError(Throwable throwable) {
+//                System.out.println(throwable.getMessage());
+//
+//            }
+//
+//            @Override
+//            public void onCompleted() {
+//                System.out.println("completed");
+//            }
+//        });
+
+        System.out.println("Send heartbeat: \n {" + heartbeat + "}");
+        try {
+            DataStore.Heartbeat res = heartBeatServiceStub.withDeadlineAfter(3000, TimeUnit.MILLISECONDS).sendHeartbeats(heartbeat);
+            AvailableReplicas.put(res.getFrom().getAddr(), res.getFrom().getId());
+            potentialLeader.add(res.getLeader());
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+//        streamObserver.onNext(heartbeat);
+    }
+
+    @Override
+    public void leaderElection(DataStore.Heartbeat request, StreamObserver<DataStore.Heartbeat> responseObserver) {
+//        sendHeartbeats();
     }
 
     @Override

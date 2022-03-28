@@ -17,8 +17,20 @@ message Server {
   Data data = 3;
 }
 
+message Heartbeat{
+  Node from = 1;
+  Node leader = 2;
+}
+
+message Node{
+  int64 id = 1;
+  string addr = 2;
+}
+
 service DataService {
   rpc read (Data) returns(Data);
   rpc add_update (Data) returns (stream Server);
   rpc propagate(Vector_clock) returns (stream Server);
+  rpc send_heartbeats( Heartbeat) returns( Heartbeat);
+  rpc leaderElection(Heartbeat) returns(Heartbeat);
 }

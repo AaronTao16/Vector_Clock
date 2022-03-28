@@ -123,6 +123,70 @@ public final class DataServiceGrpc {
      return getPropagateMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.rpc.DataStore.Heartbeat,
+      com.rpc.DataStore.Heartbeat> getSendHeartbeatsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "send_heartbeats",
+      requestType = com.rpc.DataStore.Heartbeat.class,
+      responseType = com.rpc.DataStore.Heartbeat.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.rpc.DataStore.Heartbeat,
+      com.rpc.DataStore.Heartbeat> getSendHeartbeatsMethod() {
+    io.grpc.MethodDescriptor<com.rpc.DataStore.Heartbeat, com.rpc.DataStore.Heartbeat> getSendHeartbeatsMethod;
+    if ((getSendHeartbeatsMethod = DataServiceGrpc.getSendHeartbeatsMethod) == null) {
+      synchronized (DataServiceGrpc.class) {
+        if ((getSendHeartbeatsMethod = DataServiceGrpc.getSendHeartbeatsMethod) == null) {
+          DataServiceGrpc.getSendHeartbeatsMethod = getSendHeartbeatsMethod = 
+              io.grpc.MethodDescriptor.<com.rpc.DataStore.Heartbeat, com.rpc.DataStore.Heartbeat>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "DataService", "send_heartbeats"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.rpc.DataStore.Heartbeat.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.rpc.DataStore.Heartbeat.getDefaultInstance()))
+                  .setSchemaDescriptor(new DataServiceMethodDescriptorSupplier("send_heartbeats"))
+                  .build();
+          }
+        }
+     }
+     return getSendHeartbeatsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.rpc.DataStore.Heartbeat,
+      com.rpc.DataStore.Heartbeat> getLeaderElectionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "leaderElection",
+      requestType = com.rpc.DataStore.Heartbeat.class,
+      responseType = com.rpc.DataStore.Heartbeat.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.rpc.DataStore.Heartbeat,
+      com.rpc.DataStore.Heartbeat> getLeaderElectionMethod() {
+    io.grpc.MethodDescriptor<com.rpc.DataStore.Heartbeat, com.rpc.DataStore.Heartbeat> getLeaderElectionMethod;
+    if ((getLeaderElectionMethod = DataServiceGrpc.getLeaderElectionMethod) == null) {
+      synchronized (DataServiceGrpc.class) {
+        if ((getLeaderElectionMethod = DataServiceGrpc.getLeaderElectionMethod) == null) {
+          DataServiceGrpc.getLeaderElectionMethod = getLeaderElectionMethod = 
+              io.grpc.MethodDescriptor.<com.rpc.DataStore.Heartbeat, com.rpc.DataStore.Heartbeat>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "DataService", "leaderElection"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.rpc.DataStore.Heartbeat.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.rpc.DataStore.Heartbeat.getDefaultInstance()))
+                  .setSchemaDescriptor(new DataServiceMethodDescriptorSupplier("leaderElection"))
+                  .build();
+          }
+        }
+     }
+     return getLeaderElectionMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -171,6 +235,20 @@ public final class DataServiceGrpc {
       asyncUnimplementedUnaryCall(getPropagateMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void sendHeartbeats(com.rpc.DataStore.Heartbeat request,
+        io.grpc.stub.StreamObserver<com.rpc.DataStore.Heartbeat> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendHeartbeatsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void leaderElection(com.rpc.DataStore.Heartbeat request,
+        io.grpc.stub.StreamObserver<com.rpc.DataStore.Heartbeat> responseObserver) {
+      asyncUnimplementedUnaryCall(getLeaderElectionMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -194,6 +272,20 @@ public final class DataServiceGrpc {
                 com.rpc.DataStore.Vector_clock,
                 com.rpc.DataStore.Server>(
                   this, METHODID_PROPAGATE)))
+          .addMethod(
+            getSendHeartbeatsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rpc.DataStore.Heartbeat,
+                com.rpc.DataStore.Heartbeat>(
+                  this, METHODID_SEND_HEARTBEATS)))
+          .addMethod(
+            getLeaderElectionMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rpc.DataStore.Heartbeat,
+                com.rpc.DataStore.Heartbeat>(
+                  this, METHODID_LEADER_ELECTION)))
           .build();
     }
   }
@@ -239,6 +331,22 @@ public final class DataServiceGrpc {
       asyncServerStreamingCall(
           getChannel().newCall(getPropagateMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void sendHeartbeats(com.rpc.DataStore.Heartbeat request,
+        io.grpc.stub.StreamObserver<com.rpc.DataStore.Heartbeat> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSendHeartbeatsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void leaderElection(com.rpc.DataStore.Heartbeat request,
+        io.grpc.stub.StreamObserver<com.rpc.DataStore.Heartbeat> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getLeaderElectionMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -281,6 +389,20 @@ public final class DataServiceGrpc {
       return blockingServerStreamingCall(
           getChannel(), getPropagateMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public com.rpc.DataStore.Heartbeat sendHeartbeats(com.rpc.DataStore.Heartbeat request) {
+      return blockingUnaryCall(
+          getChannel(), getSendHeartbeatsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rpc.DataStore.Heartbeat leaderElection(com.rpc.DataStore.Heartbeat request) {
+      return blockingUnaryCall(
+          getChannel(), getLeaderElectionMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -308,11 +430,29 @@ public final class DataServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getReadMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rpc.DataStore.Heartbeat> sendHeartbeats(
+        com.rpc.DataStore.Heartbeat request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSendHeartbeatsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rpc.DataStore.Heartbeat> leaderElection(
+        com.rpc.DataStore.Heartbeat request) {
+      return futureUnaryCall(
+          getChannel().newCall(getLeaderElectionMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_READ = 0;
   private static final int METHODID_ADD_UPDATE = 1;
   private static final int METHODID_PROPAGATE = 2;
+  private static final int METHODID_SEND_HEARTBEATS = 3;
+  private static final int METHODID_LEADER_ELECTION = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -342,6 +482,14 @@ public final class DataServiceGrpc {
         case METHODID_PROPAGATE:
           serviceImpl.propagate((com.rpc.DataStore.Vector_clock) request,
               (io.grpc.stub.StreamObserver<com.rpc.DataStore.Server>) responseObserver);
+          break;
+        case METHODID_SEND_HEARTBEATS:
+          serviceImpl.sendHeartbeats((com.rpc.DataStore.Heartbeat) request,
+              (io.grpc.stub.StreamObserver<com.rpc.DataStore.Heartbeat>) responseObserver);
+          break;
+        case METHODID_LEADER_ELECTION:
+          serviceImpl.leaderElection((com.rpc.DataStore.Heartbeat) request,
+              (io.grpc.stub.StreamObserver<com.rpc.DataStore.Heartbeat>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -407,6 +555,8 @@ public final class DataServiceGrpc {
               .addMethod(getReadMethod())
               .addMethod(getAddUpdateMethod())
               .addMethod(getPropagateMethod())
+              .addMethod(getSendHeartbeatsMethod())
+              .addMethod(getLeaderElectionMethod())
               .build();
         }
       }
