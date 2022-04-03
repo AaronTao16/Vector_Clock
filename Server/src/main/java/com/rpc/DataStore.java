@@ -728,1629 +728,6 @@ public final class DataStore {
 
   }
 
-  public interface Vector_clockOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Vector_clock)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    java.util.List<com.rpc.DataStore.Server> 
-        getClocksList();
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    com.rpc.DataStore.Server getClocks(int index);
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    int getClocksCount();
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    java.util.List<? extends com.rpc.DataStore.ServerOrBuilder> 
-        getClocksOrBuilderList();
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    com.rpc.DataStore.ServerOrBuilder getClocksOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code Vector_clock}
-   */
-  public  static final class Vector_clock extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Vector_clock)
-      Vector_clockOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Vector_clock.newBuilder() to construct.
-    private Vector_clock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Vector_clock() {
-      clocks_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Vector_clock();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Vector_clock(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                clocks_ = new java.util.ArrayList<com.rpc.DataStore.Server>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              clocks_.add(
-                  input.readMessage(com.rpc.DataStore.Server.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          clocks_ = java.util.Collections.unmodifiableList(clocks_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.rpc.DataStore.internal_static_Vector_clock_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.rpc.DataStore.internal_static_Vector_clock_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.rpc.DataStore.Vector_clock.class, com.rpc.DataStore.Vector_clock.Builder.class);
-    }
-
-    public static final int CLOCKS_FIELD_NUMBER = 1;
-    private java.util.List<com.rpc.DataStore.Server> clocks_;
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    public java.util.List<com.rpc.DataStore.Server> getClocksList() {
-      return clocks_;
-    }
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    public java.util.List<? extends com.rpc.DataStore.ServerOrBuilder> 
-        getClocksOrBuilderList() {
-      return clocks_;
-    }
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    public int getClocksCount() {
-      return clocks_.size();
-    }
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    public com.rpc.DataStore.Server getClocks(int index) {
-      return clocks_.get(index);
-    }
-    /**
-     * <code>repeated .Server clocks = 1;</code>
-     */
-    public com.rpc.DataStore.ServerOrBuilder getClocksOrBuilder(
-        int index) {
-      return clocks_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < clocks_.size(); i++) {
-        output.writeMessage(1, clocks_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < clocks_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, clocks_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.rpc.DataStore.Vector_clock)) {
-        return super.equals(obj);
-      }
-      com.rpc.DataStore.Vector_clock other = (com.rpc.DataStore.Vector_clock) obj;
-
-      if (!getClocksList()
-          .equals(other.getClocksList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getClocksCount() > 0) {
-        hash = (37 * hash) + CLOCKS_FIELD_NUMBER;
-        hash = (53 * hash) + getClocksList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Vector_clock parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.rpc.DataStore.Vector_clock parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.rpc.DataStore.Vector_clock parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.rpc.DataStore.Vector_clock prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Vector_clock}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Vector_clock)
-        com.rpc.DataStore.Vector_clockOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.rpc.DataStore.internal_static_Vector_clock_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.rpc.DataStore.internal_static_Vector_clock_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.rpc.DataStore.Vector_clock.class, com.rpc.DataStore.Vector_clock.Builder.class);
-      }
-
-      // Construct using com.rpc.DataStore.Vector_clock.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getClocksFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (clocksBuilder_ == null) {
-          clocks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          clocksBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.rpc.DataStore.internal_static_Vector_clock_descriptor;
-      }
-
-      @java.lang.Override
-      public com.rpc.DataStore.Vector_clock getDefaultInstanceForType() {
-        return com.rpc.DataStore.Vector_clock.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.rpc.DataStore.Vector_clock build() {
-        com.rpc.DataStore.Vector_clock result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.rpc.DataStore.Vector_clock buildPartial() {
-        com.rpc.DataStore.Vector_clock result = new com.rpc.DataStore.Vector_clock(this);
-        int from_bitField0_ = bitField0_;
-        if (clocksBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            clocks_ = java.util.Collections.unmodifiableList(clocks_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.clocks_ = clocks_;
-        } else {
-          result.clocks_ = clocksBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.rpc.DataStore.Vector_clock) {
-          return mergeFrom((com.rpc.DataStore.Vector_clock)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.rpc.DataStore.Vector_clock other) {
-        if (other == com.rpc.DataStore.Vector_clock.getDefaultInstance()) return this;
-        if (clocksBuilder_ == null) {
-          if (!other.clocks_.isEmpty()) {
-            if (clocks_.isEmpty()) {
-              clocks_ = other.clocks_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureClocksIsMutable();
-              clocks_.addAll(other.clocks_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.clocks_.isEmpty()) {
-            if (clocksBuilder_.isEmpty()) {
-              clocksBuilder_.dispose();
-              clocksBuilder_ = null;
-              clocks_ = other.clocks_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              clocksBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getClocksFieldBuilder() : null;
-            } else {
-              clocksBuilder_.addAllMessages(other.clocks_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.rpc.DataStore.Vector_clock parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.rpc.DataStore.Vector_clock) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.util.List<com.rpc.DataStore.Server> clocks_ =
-        java.util.Collections.emptyList();
-      private void ensureClocksIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          clocks_ = new java.util.ArrayList<com.rpc.DataStore.Server>(clocks_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.rpc.DataStore.Server, com.rpc.DataStore.Server.Builder, com.rpc.DataStore.ServerOrBuilder> clocksBuilder_;
-
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public java.util.List<com.rpc.DataStore.Server> getClocksList() {
-        if (clocksBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(clocks_);
-        } else {
-          return clocksBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public int getClocksCount() {
-        if (clocksBuilder_ == null) {
-          return clocks_.size();
-        } else {
-          return clocksBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public com.rpc.DataStore.Server getClocks(int index) {
-        if (clocksBuilder_ == null) {
-          return clocks_.get(index);
-        } else {
-          return clocksBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder setClocks(
-          int index, com.rpc.DataStore.Server value) {
-        if (clocksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureClocksIsMutable();
-          clocks_.set(index, value);
-          onChanged();
-        } else {
-          clocksBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder setClocks(
-          int index, com.rpc.DataStore.Server.Builder builderForValue) {
-        if (clocksBuilder_ == null) {
-          ensureClocksIsMutable();
-          clocks_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          clocksBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder addClocks(com.rpc.DataStore.Server value) {
-        if (clocksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureClocksIsMutable();
-          clocks_.add(value);
-          onChanged();
-        } else {
-          clocksBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder addClocks(
-          int index, com.rpc.DataStore.Server value) {
-        if (clocksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureClocksIsMutable();
-          clocks_.add(index, value);
-          onChanged();
-        } else {
-          clocksBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder addClocks(
-          com.rpc.DataStore.Server.Builder builderForValue) {
-        if (clocksBuilder_ == null) {
-          ensureClocksIsMutable();
-          clocks_.add(builderForValue.build());
-          onChanged();
-        } else {
-          clocksBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder addClocks(
-          int index, com.rpc.DataStore.Server.Builder builderForValue) {
-        if (clocksBuilder_ == null) {
-          ensureClocksIsMutable();
-          clocks_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          clocksBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder addAllClocks(
-          java.lang.Iterable<? extends com.rpc.DataStore.Server> values) {
-        if (clocksBuilder_ == null) {
-          ensureClocksIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, clocks_);
-          onChanged();
-        } else {
-          clocksBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder clearClocks() {
-        if (clocksBuilder_ == null) {
-          clocks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          clocksBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public Builder removeClocks(int index) {
-        if (clocksBuilder_ == null) {
-          ensureClocksIsMutable();
-          clocks_.remove(index);
-          onChanged();
-        } else {
-          clocksBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public com.rpc.DataStore.Server.Builder getClocksBuilder(
-          int index) {
-        return getClocksFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public com.rpc.DataStore.ServerOrBuilder getClocksOrBuilder(
-          int index) {
-        if (clocksBuilder_ == null) {
-          return clocks_.get(index);  } else {
-          return clocksBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public java.util.List<? extends com.rpc.DataStore.ServerOrBuilder> 
-           getClocksOrBuilderList() {
-        if (clocksBuilder_ != null) {
-          return clocksBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(clocks_);
-        }
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public com.rpc.DataStore.Server.Builder addClocksBuilder() {
-        return getClocksFieldBuilder().addBuilder(
-            com.rpc.DataStore.Server.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public com.rpc.DataStore.Server.Builder addClocksBuilder(
-          int index) {
-        return getClocksFieldBuilder().addBuilder(
-            index, com.rpc.DataStore.Server.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .Server clocks = 1;</code>
-       */
-      public java.util.List<com.rpc.DataStore.Server.Builder> 
-           getClocksBuilderList() {
-        return getClocksFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.rpc.DataStore.Server, com.rpc.DataStore.Server.Builder, com.rpc.DataStore.ServerOrBuilder> 
-          getClocksFieldBuilder() {
-        if (clocksBuilder_ == null) {
-          clocksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.rpc.DataStore.Server, com.rpc.DataStore.Server.Builder, com.rpc.DataStore.ServerOrBuilder>(
-                  clocks_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          clocks_ = null;
-        }
-        return clocksBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Vector_clock)
-    }
-
-    // @@protoc_insertion_point(class_scope:Vector_clock)
-    private static final com.rpc.DataStore.Vector_clock DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.rpc.DataStore.Vector_clock();
-    }
-
-    public static com.rpc.DataStore.Vector_clock getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Vector_clock>
-        PARSER = new com.google.protobuf.AbstractParser<Vector_clock>() {
-      @java.lang.Override
-      public Vector_clock parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Vector_clock(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Vector_clock> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Vector_clock> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.rpc.DataStore.Vector_clock getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ServerOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Server)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string id = 1;</code>
-     * @return The id.
-     */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
-
-    /**
-     * <code>int64 clock = 2;</code>
-     * @return The clock.
-     */
-    long getClock();
-
-    /**
-     * <code>.Data data = 3;</code>
-     * @return Whether the data field is set.
-     */
-    boolean hasData();
-    /**
-     * <code>.Data data = 3;</code>
-     * @return The data.
-     */
-    com.rpc.DataStore.Data getData();
-    /**
-     * <code>.Data data = 3;</code>
-     */
-    com.rpc.DataStore.DataOrBuilder getDataOrBuilder();
-  }
-  /**
-   * Protobuf type {@code Server}
-   */
-  public  static final class Server extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Server)
-      ServerOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Server.newBuilder() to construct.
-    private Server(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Server() {
-      id_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Server();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Server(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 16: {
-
-              clock_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              com.rpc.DataStore.Data.Builder subBuilder = null;
-              if (data_ != null) {
-                subBuilder = data_.toBuilder();
-              }
-              data_ = input.readMessage(com.rpc.DataStore.Data.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(data_);
-                data_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.rpc.DataStore.internal_static_Server_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.rpc.DataStore.internal_static_Server_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.rpc.DataStore.Server.class, com.rpc.DataStore.Server.Builder.class);
-    }
-
-    public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
-    /**
-     * <code>string id = 1;</code>
-     * @return The id.
-     */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CLOCK_FIELD_NUMBER = 2;
-    private long clock_;
-    /**
-     * <code>int64 clock = 2;</code>
-     * @return The clock.
-     */
-    public long getClock() {
-      return clock_;
-    }
-
-    public static final int DATA_FIELD_NUMBER = 3;
-    private com.rpc.DataStore.Data data_;
-    /**
-     * <code>.Data data = 3;</code>
-     * @return Whether the data field is set.
-     */
-    public boolean hasData() {
-      return data_ != null;
-    }
-    /**
-     * <code>.Data data = 3;</code>
-     * @return The data.
-     */
-    public com.rpc.DataStore.Data getData() {
-      return data_ == null ? com.rpc.DataStore.Data.getDefaultInstance() : data_;
-    }
-    /**
-     * <code>.Data data = 3;</code>
-     */
-    public com.rpc.DataStore.DataOrBuilder getDataOrBuilder() {
-      return getData();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-      }
-      if (clock_ != 0L) {
-        output.writeInt64(2, clock_);
-      }
-      if (data_ != null) {
-        output.writeMessage(3, getData());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-      }
-      if (clock_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, clock_);
-      }
-      if (data_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getData());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.rpc.DataStore.Server)) {
-        return super.equals(obj);
-      }
-      com.rpc.DataStore.Server other = (com.rpc.DataStore.Server) obj;
-
-      if (!getId()
-          .equals(other.getId())) return false;
-      if (getClock()
-          != other.getClock()) return false;
-      if (hasData() != other.hasData()) return false;
-      if (hasData()) {
-        if (!getData()
-            .equals(other.getData())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
-      hash = (37 * hash) + CLOCK_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getClock());
-      if (hasData()) {
-        hash = (37 * hash) + DATA_FIELD_NUMBER;
-        hash = (53 * hash) + getData().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.rpc.DataStore.Server parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.rpc.DataStore.Server parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Server parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.rpc.DataStore.Server parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Server parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.rpc.DataStore.Server parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Server parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.rpc.DataStore.Server parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Server parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.rpc.DataStore.Server parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.rpc.DataStore.Server parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.rpc.DataStore.Server parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.rpc.DataStore.Server prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Server}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Server)
-        com.rpc.DataStore.ServerOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.rpc.DataStore.internal_static_Server_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.rpc.DataStore.internal_static_Server_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.rpc.DataStore.Server.class, com.rpc.DataStore.Server.Builder.class);
-      }
-
-      // Construct using com.rpc.DataStore.Server.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        id_ = "";
-
-        clock_ = 0L;
-
-        if (dataBuilder_ == null) {
-          data_ = null;
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.rpc.DataStore.internal_static_Server_descriptor;
-      }
-
-      @java.lang.Override
-      public com.rpc.DataStore.Server getDefaultInstanceForType() {
-        return com.rpc.DataStore.Server.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.rpc.DataStore.Server build() {
-        com.rpc.DataStore.Server result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.rpc.DataStore.Server buildPartial() {
-        com.rpc.DataStore.Server result = new com.rpc.DataStore.Server(this);
-        result.id_ = id_;
-        result.clock_ = clock_;
-        if (dataBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = dataBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.rpc.DataStore.Server) {
-          return mergeFrom((com.rpc.DataStore.Server)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.rpc.DataStore.Server other) {
-        if (other == com.rpc.DataStore.Server.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
-        }
-        if (other.getClock() != 0L) {
-          setClock(other.getClock());
-        }
-        if (other.hasData()) {
-          mergeData(other.getData());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.rpc.DataStore.Server parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.rpc.DataStore.Server) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object id_ = "";
-      /**
-       * <code>string id = 1;</code>
-       * @return The id.
-       */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearId() {
-        
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-
-      private long clock_ ;
-      /**
-       * <code>int64 clock = 2;</code>
-       * @return The clock.
-       */
-      public long getClock() {
-        return clock_;
-      }
-      /**
-       * <code>int64 clock = 2;</code>
-       * @param value The clock to set.
-       * @return This builder for chaining.
-       */
-      public Builder setClock(long value) {
-        
-        clock_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 clock = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearClock() {
-        
-        clock_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private com.rpc.DataStore.Data data_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder> dataBuilder_;
-      /**
-       * <code>.Data data = 3;</code>
-       * @return Whether the data field is set.
-       */
-      public boolean hasData() {
-        return dataBuilder_ != null || data_ != null;
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       * @return The data.
-       */
-      public com.rpc.DataStore.Data getData() {
-        if (dataBuilder_ == null) {
-          return data_ == null ? com.rpc.DataStore.Data.getDefaultInstance() : data_;
-        } else {
-          return dataBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       */
-      public Builder setData(com.rpc.DataStore.Data value) {
-        if (dataBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          data_ = value;
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       */
-      public Builder setData(
-          com.rpc.DataStore.Data.Builder builderForValue) {
-        if (dataBuilder_ == null) {
-          data_ = builderForValue.build();
-          onChanged();
-        } else {
-          dataBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       */
-      public Builder mergeData(com.rpc.DataStore.Data value) {
-        if (dataBuilder_ == null) {
-          if (data_ != null) {
-            data_ =
-              com.rpc.DataStore.Data.newBuilder(data_).mergeFrom(value).buildPartial();
-          } else {
-            data_ = value;
-          }
-          onChanged();
-        } else {
-          dataBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       */
-      public Builder clearData() {
-        if (dataBuilder_ == null) {
-          data_ = null;
-          onChanged();
-        } else {
-          data_ = null;
-          dataBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       */
-      public com.rpc.DataStore.Data.Builder getDataBuilder() {
-        
-        onChanged();
-        return getDataFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       */
-      public com.rpc.DataStore.DataOrBuilder getDataOrBuilder() {
-        if (dataBuilder_ != null) {
-          return dataBuilder_.getMessageOrBuilder();
-        } else {
-          return data_ == null ?
-              com.rpc.DataStore.Data.getDefaultInstance() : data_;
-        }
-      }
-      /**
-       * <code>.Data data = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder> 
-          getDataFieldBuilder() {
-        if (dataBuilder_ == null) {
-          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder>(
-                  getData(),
-                  getParentForChildren(),
-                  isClean());
-          data_ = null;
-        }
-        return dataBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Server)
-    }
-
-    // @@protoc_insertion_point(class_scope:Server)
-    private static final com.rpc.DataStore.Server DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.rpc.DataStore.Server();
-    }
-
-    public static com.rpc.DataStore.Server getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Server>
-        PARSER = new com.google.protobuf.AbstractParser<Server>() {
-      @java.lang.Override
-      public Server parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Server(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Server> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Server> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.rpc.DataStore.Server getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface HeartbeatOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Heartbeat)
       com.google.protobuf.MessageOrBuilder {
@@ -2384,6 +761,90 @@ public final class DataStore {
      * <code>.Node leader = 2;</code>
      */
     com.rpc.DataStore.NodeOrBuilder getLeaderOrBuilder();
+
+    /**
+     * <code>string operation = 3;</code>
+     * @return The operation.
+     */
+    java.lang.String getOperation();
+    /**
+     * <code>string operation = 3;</code>
+     * @return The bytes for operation.
+     */
+    com.google.protobuf.ByteString
+        getOperationBytes();
+
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    java.util.List<com.rpc.DataStore.Data> 
+        getDataList();
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    com.rpc.DataStore.Data getData(int index);
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    int getDataCount();
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    java.util.List<? extends com.rpc.DataStore.DataOrBuilder> 
+        getDataOrBuilderList();
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    com.rpc.DataStore.DataOrBuilder getDataOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    java.util.List<com.rpc.DataStore.Clock> 
+        getClocksList();
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    com.rpc.DataStore.Clock getClocks(int index);
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    int getClocksCount();
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    java.util.List<? extends com.rpc.DataStore.ClockOrBuilder> 
+        getClocksOrBuilderList();
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    com.rpc.DataStore.ClockOrBuilder getClocksOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    java.util.List<com.rpc.DataStore.Log> 
+        getLogsList();
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    com.rpc.DataStore.Log getLogs(int index);
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    int getLogsCount();
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    java.util.List<? extends com.rpc.DataStore.LogOrBuilder> 
+        getLogsOrBuilderList();
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    com.rpc.DataStore.LogOrBuilder getLogsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code Heartbeat}
@@ -2398,6 +859,10 @@ public final class DataStore {
       super(builder);
     }
     private Heartbeat() {
+      operation_ = "";
+      data_ = java.util.Collections.emptyList();
+      clocks_ = java.util.Collections.emptyList();
+      logs_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2420,6 +885,7 @@ public final class DataStore {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2456,6 +922,39 @@ public final class DataStore {
 
               break;
             }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              operation_ = s;
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                data_ = new java.util.ArrayList<com.rpc.DataStore.Data>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              data_.add(
+                  input.readMessage(com.rpc.DataStore.Data.parser(), extensionRegistry));
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                clocks_ = new java.util.ArrayList<com.rpc.DataStore.Clock>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              clocks_.add(
+                  input.readMessage(com.rpc.DataStore.Clock.parser(), extensionRegistry));
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                logs_ = new java.util.ArrayList<com.rpc.DataStore.Log>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              logs_.add(
+                  input.readMessage(com.rpc.DataStore.Log.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2471,6 +970,15 @@ public final class DataStore {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          data_ = java.util.Collections.unmodifiableList(data_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          clocks_ = java.util.Collections.unmodifiableList(clocks_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          logs_ = java.util.Collections.unmodifiableList(logs_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2534,6 +1042,147 @@ public final class DataStore {
       return getLeader();
     }
 
+    public static final int OPERATION_FIELD_NUMBER = 3;
+    private volatile java.lang.Object operation_;
+    /**
+     * <code>string operation = 3;</code>
+     * @return The operation.
+     */
+    public java.lang.String getOperation() {
+      java.lang.Object ref = operation_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        operation_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string operation = 3;</code>
+     * @return The bytes for operation.
+     */
+    public com.google.protobuf.ByteString
+        getOperationBytes() {
+      java.lang.Object ref = operation_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        operation_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATA_FIELD_NUMBER = 4;
+    private java.util.List<com.rpc.DataStore.Data> data_;
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    public java.util.List<com.rpc.DataStore.Data> getDataList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    public java.util.List<? extends com.rpc.DataStore.DataOrBuilder> 
+        getDataOrBuilderList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    public int getDataCount() {
+      return data_.size();
+    }
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    public com.rpc.DataStore.Data getData(int index) {
+      return data_.get(index);
+    }
+    /**
+     * <code>repeated .Data data = 4;</code>
+     */
+    public com.rpc.DataStore.DataOrBuilder getDataOrBuilder(
+        int index) {
+      return data_.get(index);
+    }
+
+    public static final int CLOCKS_FIELD_NUMBER = 5;
+    private java.util.List<com.rpc.DataStore.Clock> clocks_;
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    public java.util.List<com.rpc.DataStore.Clock> getClocksList() {
+      return clocks_;
+    }
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    public java.util.List<? extends com.rpc.DataStore.ClockOrBuilder> 
+        getClocksOrBuilderList() {
+      return clocks_;
+    }
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    public int getClocksCount() {
+      return clocks_.size();
+    }
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    public com.rpc.DataStore.Clock getClocks(int index) {
+      return clocks_.get(index);
+    }
+    /**
+     * <code>repeated .Clock clocks = 5;</code>
+     */
+    public com.rpc.DataStore.ClockOrBuilder getClocksOrBuilder(
+        int index) {
+      return clocks_.get(index);
+    }
+
+    public static final int LOGS_FIELD_NUMBER = 6;
+    private java.util.List<com.rpc.DataStore.Log> logs_;
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    public java.util.List<com.rpc.DataStore.Log> getLogsList() {
+      return logs_;
+    }
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    public java.util.List<? extends com.rpc.DataStore.LogOrBuilder> 
+        getLogsOrBuilderList() {
+      return logs_;
+    }
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    public int getLogsCount() {
+      return logs_.size();
+    }
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    public com.rpc.DataStore.Log getLogs(int index) {
+      return logs_.get(index);
+    }
+    /**
+     * <code>repeated .Log logs = 6;</code>
+     */
+    public com.rpc.DataStore.LogOrBuilder getLogsOrBuilder(
+        int index) {
+      return logs_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2554,6 +1203,18 @@ public final class DataStore {
       if (leader_ != null) {
         output.writeMessage(2, getLeader());
       }
+      if (!getOperationBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, operation_);
+      }
+      for (int i = 0; i < data_.size(); i++) {
+        output.writeMessage(4, data_.get(i));
+      }
+      for (int i = 0; i < clocks_.size(); i++) {
+        output.writeMessage(5, clocks_.get(i));
+      }
+      for (int i = 0; i < logs_.size(); i++) {
+        output.writeMessage(6, logs_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2570,6 +1231,21 @@ public final class DataStore {
       if (leader_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getLeader());
+      }
+      if (!getOperationBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, operation_);
+      }
+      for (int i = 0; i < data_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, data_.get(i));
+      }
+      for (int i = 0; i < clocks_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, clocks_.get(i));
+      }
+      for (int i = 0; i < logs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, logs_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2596,6 +1272,14 @@ public final class DataStore {
         if (!getLeader()
             .equals(other.getLeader())) return false;
       }
+      if (!getOperation()
+          .equals(other.getOperation())) return false;
+      if (!getDataList()
+          .equals(other.getDataList())) return false;
+      if (!getClocksList()
+          .equals(other.getClocksList())) return false;
+      if (!getLogsList()
+          .equals(other.getLogsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2614,6 +1298,20 @@ public final class DataStore {
       if (hasLeader()) {
         hash = (37 * hash) + LEADER_FIELD_NUMBER;
         hash = (53 * hash) + getLeader().hashCode();
+      }
+      hash = (37 * hash) + OPERATION_FIELD_NUMBER;
+      hash = (53 * hash) + getOperation().hashCode();
+      if (getDataCount() > 0) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getDataList().hashCode();
+      }
+      if (getClocksCount() > 0) {
+        hash = (37 * hash) + CLOCKS_FIELD_NUMBER;
+        hash = (53 * hash) + getClocksList().hashCode();
+      }
+      if (getLogsCount() > 0) {
+        hash = (37 * hash) + LOGS_FIELD_NUMBER;
+        hash = (53 * hash) + getLogsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2743,6 +1441,9 @@ public final class DataStore {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getDataFieldBuilder();
+          getClocksFieldBuilder();
+          getLogsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -2759,6 +1460,26 @@ public final class DataStore {
         } else {
           leader_ = null;
           leaderBuilder_ = null;
+        }
+        operation_ = "";
+
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          dataBuilder_.clear();
+        }
+        if (clocksBuilder_ == null) {
+          clocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          clocksBuilder_.clear();
+        }
+        if (logsBuilder_ == null) {
+          logs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          logsBuilder_.clear();
         }
         return this;
       }
@@ -2786,6 +1507,7 @@ public final class DataStore {
       @java.lang.Override
       public com.rpc.DataStore.Heartbeat buildPartial() {
         com.rpc.DataStore.Heartbeat result = new com.rpc.DataStore.Heartbeat(this);
+        int from_bitField0_ = bitField0_;
         if (fromBuilder_ == null) {
           result.from_ = from_;
         } else {
@@ -2795,6 +1517,34 @@ public final class DataStore {
           result.leader_ = leader_;
         } else {
           result.leader_ = leaderBuilder_.build();
+        }
+        result.operation_ = operation_;
+        if (dataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            data_ = java.util.Collections.unmodifiableList(data_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        if (clocksBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            clocks_ = java.util.Collections.unmodifiableList(clocks_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.clocks_ = clocks_;
+        } else {
+          result.clocks_ = clocksBuilder_.build();
+        }
+        if (logsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            logs_ = java.util.Collections.unmodifiableList(logs_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.logs_ = logs_;
+        } else {
+          result.logs_ = logsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -2850,6 +1600,88 @@ public final class DataStore {
         if (other.hasLeader()) {
           mergeLeader(other.getLeader());
         }
+        if (!other.getOperation().isEmpty()) {
+          operation_ = other.operation_;
+          onChanged();
+        }
+        if (dataBuilder_ == null) {
+          if (!other.data_.isEmpty()) {
+            if (data_.isEmpty()) {
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDataIsMutable();
+              data_.addAll(other.data_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.data_.isEmpty()) {
+            if (dataBuilder_.isEmpty()) {
+              dataBuilder_.dispose();
+              dataBuilder_ = null;
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dataBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDataFieldBuilder() : null;
+            } else {
+              dataBuilder_.addAllMessages(other.data_);
+            }
+          }
+        }
+        if (clocksBuilder_ == null) {
+          if (!other.clocks_.isEmpty()) {
+            if (clocks_.isEmpty()) {
+              clocks_ = other.clocks_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureClocksIsMutable();
+              clocks_.addAll(other.clocks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.clocks_.isEmpty()) {
+            if (clocksBuilder_.isEmpty()) {
+              clocksBuilder_.dispose();
+              clocksBuilder_ = null;
+              clocks_ = other.clocks_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              clocksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getClocksFieldBuilder() : null;
+            } else {
+              clocksBuilder_.addAllMessages(other.clocks_);
+            }
+          }
+        }
+        if (logsBuilder_ == null) {
+          if (!other.logs_.isEmpty()) {
+            if (logs_.isEmpty()) {
+              logs_ = other.logs_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureLogsIsMutable();
+              logs_.addAll(other.logs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.logs_.isEmpty()) {
+            if (logsBuilder_.isEmpty()) {
+              logsBuilder_.dispose();
+              logsBuilder_ = null;
+              logs_ = other.logs_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              logsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getLogsFieldBuilder() : null;
+            } else {
+              logsBuilder_.addAllMessages(other.logs_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2878,6 +1710,7 @@ public final class DataStore {
         }
         return this;
       }
+      private int bitField0_;
 
       private com.rpc.DataStore.Node from_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3116,6 +1949,802 @@ public final class DataStore {
         }
         return leaderBuilder_;
       }
+
+      private java.lang.Object operation_ = "";
+      /**
+       * <code>string operation = 3;</code>
+       * @return The operation.
+       */
+      public java.lang.String getOperation() {
+        java.lang.Object ref = operation_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          operation_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string operation = 3;</code>
+       * @return The bytes for operation.
+       */
+      public com.google.protobuf.ByteString
+          getOperationBytes() {
+        java.lang.Object ref = operation_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          operation_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string operation = 3;</code>
+       * @param value The operation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOperation(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        operation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string operation = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOperation() {
+        
+        operation_ = getDefaultInstance().getOperation();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string operation = 3;</code>
+       * @param value The bytes for operation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOperationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        operation_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.rpc.DataStore.Data> data_ =
+        java.util.Collections.emptyList();
+      private void ensureDataIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          data_ = new java.util.ArrayList<com.rpc.DataStore.Data>(data_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder> dataBuilder_;
+
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public java.util.List<com.rpc.DataStore.Data> getDataList() {
+        if (dataBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(data_);
+        } else {
+          return dataBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public int getDataCount() {
+        if (dataBuilder_ == null) {
+          return data_.size();
+        } else {
+          return dataBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public com.rpc.DataStore.Data getData(int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);
+        } else {
+          return dataBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder setData(
+          int index, com.rpc.DataStore.Data value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.set(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder setData(
+          int index, com.rpc.DataStore.Data.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder addData(com.rpc.DataStore.Data value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder addData(
+          int index, com.rpc.DataStore.Data value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder addData(
+          com.rpc.DataStore.Data.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder addData(
+          int index, com.rpc.DataStore.Data.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder addAllData(
+          java.lang.Iterable<? extends com.rpc.DataStore.Data> values) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, data_);
+          onChanged();
+        } else {
+          dataBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public Builder removeData(int index) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.remove(index);
+          onChanged();
+        } else {
+          dataBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public com.rpc.DataStore.Data.Builder getDataBuilder(
+          int index) {
+        return getDataFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public com.rpc.DataStore.DataOrBuilder getDataOrBuilder(
+          int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);  } else {
+          return dataBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public java.util.List<? extends com.rpc.DataStore.DataOrBuilder> 
+           getDataOrBuilderList() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(data_);
+        }
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public com.rpc.DataStore.Data.Builder addDataBuilder() {
+        return getDataFieldBuilder().addBuilder(
+            com.rpc.DataStore.Data.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public com.rpc.DataStore.Data.Builder addDataBuilder(
+          int index) {
+        return getDataFieldBuilder().addBuilder(
+            index, com.rpc.DataStore.Data.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Data data = 4;</code>
+       */
+      public java.util.List<com.rpc.DataStore.Data.Builder> 
+           getDataBuilderList() {
+        return getDataFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder>(
+                  data_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+
+      private java.util.List<com.rpc.DataStore.Clock> clocks_ =
+        java.util.Collections.emptyList();
+      private void ensureClocksIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          clocks_ = new java.util.ArrayList<com.rpc.DataStore.Clock>(clocks_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Clock, com.rpc.DataStore.Clock.Builder, com.rpc.DataStore.ClockOrBuilder> clocksBuilder_;
+
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public java.util.List<com.rpc.DataStore.Clock> getClocksList() {
+        if (clocksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(clocks_);
+        } else {
+          return clocksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public int getClocksCount() {
+        if (clocksBuilder_ == null) {
+          return clocks_.size();
+        } else {
+          return clocksBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public com.rpc.DataStore.Clock getClocks(int index) {
+        if (clocksBuilder_ == null) {
+          return clocks_.get(index);
+        } else {
+          return clocksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder setClocks(
+          int index, com.rpc.DataStore.Clock value) {
+        if (clocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClocksIsMutable();
+          clocks_.set(index, value);
+          onChanged();
+        } else {
+          clocksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder setClocks(
+          int index, com.rpc.DataStore.Clock.Builder builderForValue) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          clocksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder addClocks(com.rpc.DataStore.Clock value) {
+        if (clocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClocksIsMutable();
+          clocks_.add(value);
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder addClocks(
+          int index, com.rpc.DataStore.Clock value) {
+        if (clocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClocksIsMutable();
+          clocks_.add(index, value);
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder addClocks(
+          com.rpc.DataStore.Clock.Builder builderForValue) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder addClocks(
+          int index, com.rpc.DataStore.Clock.Builder builderForValue) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder addAllClocks(
+          java.lang.Iterable<? extends com.rpc.DataStore.Clock> values) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, clocks_);
+          onChanged();
+        } else {
+          clocksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder clearClocks() {
+        if (clocksBuilder_ == null) {
+          clocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          clocksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public Builder removeClocks(int index) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.remove(index);
+          onChanged();
+        } else {
+          clocksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public com.rpc.DataStore.Clock.Builder getClocksBuilder(
+          int index) {
+        return getClocksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public com.rpc.DataStore.ClockOrBuilder getClocksOrBuilder(
+          int index) {
+        if (clocksBuilder_ == null) {
+          return clocks_.get(index);  } else {
+          return clocksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public java.util.List<? extends com.rpc.DataStore.ClockOrBuilder> 
+           getClocksOrBuilderList() {
+        if (clocksBuilder_ != null) {
+          return clocksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(clocks_);
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public com.rpc.DataStore.Clock.Builder addClocksBuilder() {
+        return getClocksFieldBuilder().addBuilder(
+            com.rpc.DataStore.Clock.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public com.rpc.DataStore.Clock.Builder addClocksBuilder(
+          int index) {
+        return getClocksFieldBuilder().addBuilder(
+            index, com.rpc.DataStore.Clock.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Clock clocks = 5;</code>
+       */
+      public java.util.List<com.rpc.DataStore.Clock.Builder> 
+           getClocksBuilderList() {
+        return getClocksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Clock, com.rpc.DataStore.Clock.Builder, com.rpc.DataStore.ClockOrBuilder> 
+          getClocksFieldBuilder() {
+        if (clocksBuilder_ == null) {
+          clocksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.rpc.DataStore.Clock, com.rpc.DataStore.Clock.Builder, com.rpc.DataStore.ClockOrBuilder>(
+                  clocks_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          clocks_ = null;
+        }
+        return clocksBuilder_;
+      }
+
+      private java.util.List<com.rpc.DataStore.Log> logs_ =
+        java.util.Collections.emptyList();
+      private void ensureLogsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          logs_ = new java.util.ArrayList<com.rpc.DataStore.Log>(logs_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Log, com.rpc.DataStore.Log.Builder, com.rpc.DataStore.LogOrBuilder> logsBuilder_;
+
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public java.util.List<com.rpc.DataStore.Log> getLogsList() {
+        if (logsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(logs_);
+        } else {
+          return logsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public int getLogsCount() {
+        if (logsBuilder_ == null) {
+          return logs_.size();
+        } else {
+          return logsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public com.rpc.DataStore.Log getLogs(int index) {
+        if (logsBuilder_ == null) {
+          return logs_.get(index);
+        } else {
+          return logsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder setLogs(
+          int index, com.rpc.DataStore.Log value) {
+        if (logsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLogsIsMutable();
+          logs_.set(index, value);
+          onChanged();
+        } else {
+          logsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder setLogs(
+          int index, com.rpc.DataStore.Log.Builder builderForValue) {
+        if (logsBuilder_ == null) {
+          ensureLogsIsMutable();
+          logs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          logsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder addLogs(com.rpc.DataStore.Log value) {
+        if (logsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLogsIsMutable();
+          logs_.add(value);
+          onChanged();
+        } else {
+          logsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder addLogs(
+          int index, com.rpc.DataStore.Log value) {
+        if (logsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLogsIsMutable();
+          logs_.add(index, value);
+          onChanged();
+        } else {
+          logsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder addLogs(
+          com.rpc.DataStore.Log.Builder builderForValue) {
+        if (logsBuilder_ == null) {
+          ensureLogsIsMutable();
+          logs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          logsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder addLogs(
+          int index, com.rpc.DataStore.Log.Builder builderForValue) {
+        if (logsBuilder_ == null) {
+          ensureLogsIsMutable();
+          logs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          logsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder addAllLogs(
+          java.lang.Iterable<? extends com.rpc.DataStore.Log> values) {
+        if (logsBuilder_ == null) {
+          ensureLogsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, logs_);
+          onChanged();
+        } else {
+          logsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder clearLogs() {
+        if (logsBuilder_ == null) {
+          logs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          logsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public Builder removeLogs(int index) {
+        if (logsBuilder_ == null) {
+          ensureLogsIsMutable();
+          logs_.remove(index);
+          onChanged();
+        } else {
+          logsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public com.rpc.DataStore.Log.Builder getLogsBuilder(
+          int index) {
+        return getLogsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public com.rpc.DataStore.LogOrBuilder getLogsOrBuilder(
+          int index) {
+        if (logsBuilder_ == null) {
+          return logs_.get(index);  } else {
+          return logsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public java.util.List<? extends com.rpc.DataStore.LogOrBuilder> 
+           getLogsOrBuilderList() {
+        if (logsBuilder_ != null) {
+          return logsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(logs_);
+        }
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public com.rpc.DataStore.Log.Builder addLogsBuilder() {
+        return getLogsFieldBuilder().addBuilder(
+            com.rpc.DataStore.Log.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public com.rpc.DataStore.Log.Builder addLogsBuilder(
+          int index) {
+        return getLogsFieldBuilder().addBuilder(
+            index, com.rpc.DataStore.Log.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Log logs = 6;</code>
+       */
+      public java.util.List<com.rpc.DataStore.Log.Builder> 
+           getLogsBuilderList() {
+        return getLogsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Log, com.rpc.DataStore.Log.Builder, com.rpc.DataStore.LogOrBuilder> 
+          getLogsFieldBuilder() {
+        if (logsBuilder_ == null) {
+          logsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.rpc.DataStore.Log, com.rpc.DataStore.Log.Builder, com.rpc.DataStore.LogOrBuilder>(
+                  logs_,
+                  ((bitField0_ & 0x00000004) != 0),
+                  getParentForChildren(),
+                  isClean());
+          logs_ = null;
+        }
+        return logsBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3164,6 +2793,693 @@ public final class DataStore {
 
     @java.lang.Override
     public com.rpc.DataStore.Heartbeat getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ClockOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Clock)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.Node node = 1;</code>
+     * @return Whether the node field is set.
+     */
+    boolean hasNode();
+    /**
+     * <code>.Node node = 1;</code>
+     * @return The node.
+     */
+    com.rpc.DataStore.Node getNode();
+    /**
+     * <code>.Node node = 1;</code>
+     */
+    com.rpc.DataStore.NodeOrBuilder getNodeOrBuilder();
+
+    /**
+     * <code>int64 clock = 2;</code>
+     * @return The clock.
+     */
+    long getClock();
+  }
+  /**
+   * Protobuf type {@code Clock}
+   */
+  public  static final class Clock extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Clock)
+      ClockOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Clock.newBuilder() to construct.
+    private Clock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Clock() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Clock();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Clock(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.rpc.DataStore.Node.Builder subBuilder = null;
+              if (node_ != null) {
+                subBuilder = node_.toBuilder();
+              }
+              node_ = input.readMessage(com.rpc.DataStore.Node.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(node_);
+                node_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              clock_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.rpc.DataStore.internal_static_Clock_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.rpc.DataStore.internal_static_Clock_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rpc.DataStore.Clock.class, com.rpc.DataStore.Clock.Builder.class);
+    }
+
+    public static final int NODE_FIELD_NUMBER = 1;
+    private com.rpc.DataStore.Node node_;
+    /**
+     * <code>.Node node = 1;</code>
+     * @return Whether the node field is set.
+     */
+    public boolean hasNode() {
+      return node_ != null;
+    }
+    /**
+     * <code>.Node node = 1;</code>
+     * @return The node.
+     */
+    public com.rpc.DataStore.Node getNode() {
+      return node_ == null ? com.rpc.DataStore.Node.getDefaultInstance() : node_;
+    }
+    /**
+     * <code>.Node node = 1;</code>
+     */
+    public com.rpc.DataStore.NodeOrBuilder getNodeOrBuilder() {
+      return getNode();
+    }
+
+    public static final int CLOCK_FIELD_NUMBER = 2;
+    private long clock_;
+    /**
+     * <code>int64 clock = 2;</code>
+     * @return The clock.
+     */
+    public long getClock() {
+      return clock_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (node_ != null) {
+        output.writeMessage(1, getNode());
+      }
+      if (clock_ != 0L) {
+        output.writeInt64(2, clock_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (node_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getNode());
+      }
+      if (clock_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, clock_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.rpc.DataStore.Clock)) {
+        return super.equals(obj);
+      }
+      com.rpc.DataStore.Clock other = (com.rpc.DataStore.Clock) obj;
+
+      if (hasNode() != other.hasNode()) return false;
+      if (hasNode()) {
+        if (!getNode()
+            .equals(other.getNode())) return false;
+      }
+      if (getClock()
+          != other.getClock()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasNode()) {
+        hash = (37 * hash) + NODE_FIELD_NUMBER;
+        hash = (53 * hash) + getNode().hashCode();
+      }
+      hash = (37 * hash) + CLOCK_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getClock());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.rpc.DataStore.Clock parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Clock parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Clock parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Clock parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.rpc.DataStore.Clock prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Clock}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Clock)
+        com.rpc.DataStore.ClockOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.rpc.DataStore.internal_static_Clock_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.rpc.DataStore.internal_static_Clock_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.rpc.DataStore.Clock.class, com.rpc.DataStore.Clock.Builder.class);
+      }
+
+      // Construct using com.rpc.DataStore.Clock.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (nodeBuilder_ == null) {
+          node_ = null;
+        } else {
+          node_ = null;
+          nodeBuilder_ = null;
+        }
+        clock_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.rpc.DataStore.internal_static_Clock_descriptor;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Clock getDefaultInstanceForType() {
+        return com.rpc.DataStore.Clock.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Clock build() {
+        com.rpc.DataStore.Clock result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Clock buildPartial() {
+        com.rpc.DataStore.Clock result = new com.rpc.DataStore.Clock(this);
+        if (nodeBuilder_ == null) {
+          result.node_ = node_;
+        } else {
+          result.node_ = nodeBuilder_.build();
+        }
+        result.clock_ = clock_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.rpc.DataStore.Clock) {
+          return mergeFrom((com.rpc.DataStore.Clock)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.rpc.DataStore.Clock other) {
+        if (other == com.rpc.DataStore.Clock.getDefaultInstance()) return this;
+        if (other.hasNode()) {
+          mergeNode(other.getNode());
+        }
+        if (other.getClock() != 0L) {
+          setClock(other.getClock());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.rpc.DataStore.Clock parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.rpc.DataStore.Clock) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.rpc.DataStore.Node node_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder> nodeBuilder_;
+      /**
+       * <code>.Node node = 1;</code>
+       * @return Whether the node field is set.
+       */
+      public boolean hasNode() {
+        return nodeBuilder_ != null || node_ != null;
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       * @return The node.
+       */
+      public com.rpc.DataStore.Node getNode() {
+        if (nodeBuilder_ == null) {
+          return node_ == null ? com.rpc.DataStore.Node.getDefaultInstance() : node_;
+        } else {
+          return nodeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       */
+      public Builder setNode(com.rpc.DataStore.Node value) {
+        if (nodeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          node_ = value;
+          onChanged();
+        } else {
+          nodeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       */
+      public Builder setNode(
+          com.rpc.DataStore.Node.Builder builderForValue) {
+        if (nodeBuilder_ == null) {
+          node_ = builderForValue.build();
+          onChanged();
+        } else {
+          nodeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       */
+      public Builder mergeNode(com.rpc.DataStore.Node value) {
+        if (nodeBuilder_ == null) {
+          if (node_ != null) {
+            node_ =
+              com.rpc.DataStore.Node.newBuilder(node_).mergeFrom(value).buildPartial();
+          } else {
+            node_ = value;
+          }
+          onChanged();
+        } else {
+          nodeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       */
+      public Builder clearNode() {
+        if (nodeBuilder_ == null) {
+          node_ = null;
+          onChanged();
+        } else {
+          node_ = null;
+          nodeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       */
+      public com.rpc.DataStore.Node.Builder getNodeBuilder() {
+        
+        onChanged();
+        return getNodeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       */
+      public com.rpc.DataStore.NodeOrBuilder getNodeOrBuilder() {
+        if (nodeBuilder_ != null) {
+          return nodeBuilder_.getMessageOrBuilder();
+        } else {
+          return node_ == null ?
+              com.rpc.DataStore.Node.getDefaultInstance() : node_;
+        }
+      }
+      /**
+       * <code>.Node node = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder> 
+          getNodeFieldBuilder() {
+        if (nodeBuilder_ == null) {
+          nodeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.rpc.DataStore.Node, com.rpc.DataStore.Node.Builder, com.rpc.DataStore.NodeOrBuilder>(
+                  getNode(),
+                  getParentForChildren(),
+                  isClean());
+          node_ = null;
+        }
+        return nodeBuilder_;
+      }
+
+      private long clock_ ;
+      /**
+       * <code>int64 clock = 2;</code>
+       * @return The clock.
+       */
+      public long getClock() {
+        return clock_;
+      }
+      /**
+       * <code>int64 clock = 2;</code>
+       * @param value The clock to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClock(long value) {
+        
+        clock_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 clock = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClock() {
+        
+        clock_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Clock)
+    }
+
+    // @@protoc_insertion_point(class_scope:Clock)
+    private static final com.rpc.DataStore.Clock DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.rpc.DataStore.Clock();
+    }
+
+    public static com.rpc.DataStore.Clock getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Clock>
+        PARSER = new com.google.protobuf.AbstractParser<Clock>() {
+      @java.lang.Override
+      public Clock parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Clock(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Clock> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Clock> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.rpc.DataStore.Clock getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3804,31 +4120,964 @@ public final class DataStore {
 
   }
 
+  public interface LogOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Log)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+    int getClocksCount();
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+    boolean containsClocks(
+        java.lang.String key);
+    /**
+     * Use {@link #getClocksMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, com.rpc.DataStore.Clock>
+    getClocks();
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+    java.util.Map<java.lang.String, com.rpc.DataStore.Clock>
+    getClocksMap();
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+
+    com.rpc.DataStore.Clock getClocksOrDefault(
+        java.lang.String key,
+        com.rpc.DataStore.Clock defaultValue);
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+
+    com.rpc.DataStore.Clock getClocksOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>.Data data = 2;</code>
+     * @return Whether the data field is set.
+     */
+    boolean hasData();
+    /**
+     * <code>.Data data = 2;</code>
+     * @return The data.
+     */
+    com.rpc.DataStore.Data getData();
+    /**
+     * <code>.Data data = 2;</code>
+     */
+    com.rpc.DataStore.DataOrBuilder getDataOrBuilder();
+  }
+  /**
+   * Protobuf type {@code Log}
+   */
+  public  static final class Log extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Log)
+      LogOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Log.newBuilder() to construct.
+    private Log(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Log() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Log();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Log(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                clocks_ = com.google.protobuf.MapField.newMapField(
+                    ClocksDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, com.rpc.DataStore.Clock>
+              clocks__ = input.readMessage(
+                  ClocksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              clocks_.getMutableMap().put(
+                  clocks__.getKey(), clocks__.getValue());
+              break;
+            }
+            case 18: {
+              com.rpc.DataStore.Data.Builder subBuilder = null;
+              if (data_ != null) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(com.rpc.DataStore.Data.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.rpc.DataStore.internal_static_Log_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetClocks();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.rpc.DataStore.internal_static_Log_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rpc.DataStore.Log.class, com.rpc.DataStore.Log.Builder.class);
+    }
+
+    public static final int CLOCKS_FIELD_NUMBER = 1;
+    private static final class ClocksDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, com.rpc.DataStore.Clock> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, com.rpc.DataStore.Clock>newDefaultInstance(
+                  com.rpc.DataStore.internal_static_Log_ClocksEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  com.rpc.DataStore.Clock.getDefaultInstance());
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, com.rpc.DataStore.Clock> clocks_;
+    private com.google.protobuf.MapField<java.lang.String, com.rpc.DataStore.Clock>
+    internalGetClocks() {
+      if (clocks_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ClocksDefaultEntryHolder.defaultEntry);
+      }
+      return clocks_;
+    }
+
+    public int getClocksCount() {
+      return internalGetClocks().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+
+    public boolean containsClocks(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetClocks().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getClocksMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.rpc.DataStore.Clock> getClocks() {
+      return getClocksMap();
+    }
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+
+    public java.util.Map<java.lang.String, com.rpc.DataStore.Clock> getClocksMap() {
+      return internalGetClocks().getMap();
+    }
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+
+    public com.rpc.DataStore.Clock getClocksOrDefault(
+        java.lang.String key,
+        com.rpc.DataStore.Clock defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.rpc.DataStore.Clock> map =
+          internalGetClocks().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+     */
+
+    public com.rpc.DataStore.Clock getClocksOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.rpc.DataStore.Clock> map =
+          internalGetClocks().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 2;
+    private com.rpc.DataStore.Data data_;
+    /**
+     * <code>.Data data = 2;</code>
+     * @return Whether the data field is set.
+     */
+    public boolean hasData() {
+      return data_ != null;
+    }
+    /**
+     * <code>.Data data = 2;</code>
+     * @return The data.
+     */
+    public com.rpc.DataStore.Data getData() {
+      return data_ == null ? com.rpc.DataStore.Data.getDefaultInstance() : data_;
+    }
+    /**
+     * <code>.Data data = 2;</code>
+     */
+    public com.rpc.DataStore.DataOrBuilder getDataOrBuilder() {
+      return getData();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetClocks(),
+          ClocksDefaultEntryHolder.defaultEntry,
+          1);
+      if (data_ != null) {
+        output.writeMessage(2, getData());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.String, com.rpc.DataStore.Clock> entry
+           : internalGetClocks().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, com.rpc.DataStore.Clock>
+        clocks__ = ClocksDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, clocks__);
+      }
+      if (data_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getData());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.rpc.DataStore.Log)) {
+        return super.equals(obj);
+      }
+      com.rpc.DataStore.Log other = (com.rpc.DataStore.Log) obj;
+
+      if (!internalGetClocks().equals(
+          other.internalGetClocks())) return false;
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetClocks().getMap().isEmpty()) {
+        hash = (37 * hash) + CLOCKS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetClocks().hashCode();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.rpc.DataStore.Log parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Log parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Log parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Log parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Log parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.rpc.DataStore.Log parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Log parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Log parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Log parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Log parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.rpc.DataStore.Log parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.rpc.DataStore.Log parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.rpc.DataStore.Log prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Log}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Log)
+        com.rpc.DataStore.LogOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.rpc.DataStore.internal_static_Log_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetClocks();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableClocks();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.rpc.DataStore.internal_static_Log_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.rpc.DataStore.Log.class, com.rpc.DataStore.Log.Builder.class);
+      }
+
+      // Construct using com.rpc.DataStore.Log.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        internalGetMutableClocks().clear();
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.rpc.DataStore.internal_static_Log_descriptor;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Log getDefaultInstanceForType() {
+        return com.rpc.DataStore.Log.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Log build() {
+        com.rpc.DataStore.Log result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.rpc.DataStore.Log buildPartial() {
+        com.rpc.DataStore.Log result = new com.rpc.DataStore.Log(this);
+        int from_bitField0_ = bitField0_;
+        result.clocks_ = internalGetClocks();
+        result.clocks_.makeImmutable();
+        if (dataBuilder_ == null) {
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.rpc.DataStore.Log) {
+          return mergeFrom((com.rpc.DataStore.Log)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.rpc.DataStore.Log other) {
+        if (other == com.rpc.DataStore.Log.getDefaultInstance()) return this;
+        internalGetMutableClocks().mergeFrom(
+            other.internalGetClocks());
+        if (other.hasData()) {
+          mergeData(other.getData());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.rpc.DataStore.Log parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.rpc.DataStore.Log) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.String, com.rpc.DataStore.Clock> clocks_;
+      private com.google.protobuf.MapField<java.lang.String, com.rpc.DataStore.Clock>
+      internalGetClocks() {
+        if (clocks_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ClocksDefaultEntryHolder.defaultEntry);
+        }
+        return clocks_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, com.rpc.DataStore.Clock>
+      internalGetMutableClocks() {
+        onChanged();;
+        if (clocks_ == null) {
+          clocks_ = com.google.protobuf.MapField.newMapField(
+              ClocksDefaultEntryHolder.defaultEntry);
+        }
+        if (!clocks_.isMutable()) {
+          clocks_ = clocks_.copy();
+        }
+        return clocks_;
+      }
+
+      public int getClocksCount() {
+        return internalGetClocks().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+       */
+
+      public boolean containsClocks(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetClocks().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getClocksMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.rpc.DataStore.Clock> getClocks() {
+        return getClocksMap();
+      }
+      /**
+       * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+       */
+
+      public java.util.Map<java.lang.String, com.rpc.DataStore.Clock> getClocksMap() {
+        return internalGetClocks().getMap();
+      }
+      /**
+       * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+       */
+
+      public com.rpc.DataStore.Clock getClocksOrDefault(
+          java.lang.String key,
+          com.rpc.DataStore.Clock defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, com.rpc.DataStore.Clock> map =
+            internalGetClocks().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+       */
+
+      public com.rpc.DataStore.Clock getClocksOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, com.rpc.DataStore.Clock> map =
+            internalGetClocks().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearClocks() {
+        internalGetMutableClocks().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+       */
+
+      public Builder removeClocks(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableClocks().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.rpc.DataStore.Clock>
+      getMutableClocks() {
+        return internalGetMutableClocks().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+       */
+      public Builder putClocks(
+          java.lang.String key,
+          com.rpc.DataStore.Clock value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableClocks().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .Clock&gt; clocks = 1;</code>
+       */
+
+      public Builder putAllClocks(
+          java.util.Map<java.lang.String, com.rpc.DataStore.Clock> values) {
+        internalGetMutableClocks().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.rpc.DataStore.Data data_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder> dataBuilder_;
+      /**
+       * <code>.Data data = 2;</code>
+       * @return Whether the data field is set.
+       */
+      public boolean hasData() {
+        return dataBuilder_ != null || data_ != null;
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       * @return The data.
+       */
+      public com.rpc.DataStore.Data getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? com.rpc.DataStore.Data.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       */
+      public Builder setData(com.rpc.DataStore.Data value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       */
+      public Builder setData(
+          com.rpc.DataStore.Data.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       */
+      public Builder mergeData(com.rpc.DataStore.Data value) {
+        if (dataBuilder_ == null) {
+          if (data_ != null) {
+            data_ =
+              com.rpc.DataStore.Data.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       */
+      public com.rpc.DataStore.Data.Builder getDataBuilder() {
+        
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       */
+      public com.rpc.DataStore.DataOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              com.rpc.DataStore.Data.getDefaultInstance() : data_;
+        }
+      }
+      /**
+       * <code>.Data data = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.rpc.DataStore.Data, com.rpc.DataStore.Data.Builder, com.rpc.DataStore.DataOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Log)
+    }
+
+    // @@protoc_insertion_point(class_scope:Log)
+    private static final com.rpc.DataStore.Log DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.rpc.DataStore.Log();
+    }
+
+    public static com.rpc.DataStore.Log getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Log>
+        PARSER = new com.google.protobuf.AbstractParser<Log>() {
+      @java.lang.Override
+      public Log parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Log(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Log> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Log> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.rpc.DataStore.Log getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Data_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Data_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Vector_clock_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Vector_clock_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Server_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Server_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Heartbeat_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Heartbeat_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Clock_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Clock_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Node_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Node_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Log_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Log_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Log_ClocksEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Log_ClocksEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3839,17 +5088,21 @@ public final class DataStore {
   static {
     java.lang.String[] descriptorData = {
       "\n\017DataStore.proto\" \n\004Data\022\013\n\003key\030\001 \001(\t\022\013" +
-      "\n\003val\030\002 \001(\t\"\'\n\014Vector_clock\022\027\n\006clocks\030\001 " +
-      "\003(\0132\007.Server\"8\n\006Server\022\n\n\002id\030\001 \001(\t\022\r\n\005cl" +
-      "ock\030\002 \001(\003\022\023\n\004data\030\003 \001(\0132\005.Data\"7\n\tHeartb" +
-      "eat\022\023\n\004from\030\001 \001(\0132\005.Node\022\025\n\006leader\030\002 \001(\013" +
-      "2\005.Node\" \n\004Node\022\n\n\002id\030\001 \001(\003\022\014\n\004addr\030\002 \001(" +
-      "\t2\277\001\n\013DataService\022\024\n\004read\022\005.Data\032\005.Data\022" +
-      "\036\n\nadd_update\022\005.Data\032\007.Server0\001\022%\n\tpropa" +
-      "gate\022\r.Vector_clock\032\007.Server0\001\022)\n\017send_h" +
-      "eartbeats\022\n.Heartbeat\032\n.Heartbeat\022(\n\016lea" +
-      "derElection\022\n.Heartbeat\032\n.HeartbeatB\t\n\007c" +
-      "om.rpcb\006proto3"
+      "\n\003val\030\002 \001(\t\"\213\001\n\tHeartbeat\022\023\n\004from\030\001 \001(\0132" +
+      "\005.Node\022\025\n\006leader\030\002 \001(\0132\005.Node\022\021\n\toperati" +
+      "on\030\003 \001(\t\022\023\n\004data\030\004 \003(\0132\005.Data\022\026\n\006clocks\030" +
+      "\005 \003(\0132\006.Clock\022\022\n\004logs\030\006 \003(\0132\004.Log\"+\n\005Clo" +
+      "ck\022\023\n\004node\030\001 \001(\0132\005.Node\022\r\n\005clock\030\002 \001(\003\" " +
+      "\n\004Node\022\n\n\002id\030\001 \001(\003\022\014\n\004addr\030\002 \001(\t\"s\n\003Log\022" +
+      " \n\006clocks\030\001 \003(\0132\020.Log.ClocksEntry\022\023\n\004dat" +
+      "a\030\002 \001(\0132\005.Data\0325\n\013ClocksEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\025\n\005value\030\002 \001(\0132\006.Clock:\0028\0012\310\001\n\013DataSe" +
+      "rvice\022\024\n\004read\022\005.Data\032\005.Data\022\037\n\nadd_updat" +
+      "e\022\005.Data\032\n.Heartbeat\022)\n\017send_heartbeats\022" +
+      "\n.Heartbeat\032\n.Heartbeat\022-\n\023send_quorum_r" +
+      "equest\022\n.Heartbeat\032\n.Heartbeat\022(\n\016leader" +
+      "Election\022\n.Heartbeat\032\n.HeartbeatB\t\n\007com." +
+      "rpcb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3861,30 +5114,36 @@ public final class DataStore {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Data_descriptor,
         new java.lang.String[] { "Key", "Val", });
-    internal_static_Vector_clock_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_Vector_clock_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Vector_clock_descriptor,
-        new java.lang.String[] { "Clocks", });
-    internal_static_Server_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_Server_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Server_descriptor,
-        new java.lang.String[] { "Id", "Clock", "Data", });
     internal_static_Heartbeat_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_Heartbeat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Heartbeat_descriptor,
-        new java.lang.String[] { "From", "Leader", });
+        new java.lang.String[] { "From", "Leader", "Operation", "Data", "Clocks", "Logs", });
+    internal_static_Clock_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Clock_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Clock_descriptor,
+        new java.lang.String[] { "Node", "Clock", });
     internal_static_Node_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Node_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Node_descriptor,
         new java.lang.String[] { "Id", "Addr", });
+    internal_static_Log_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_Log_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Log_descriptor,
+        new java.lang.String[] { "Clocks", "Data", });
+    internal_static_Log_ClocksEntry_descriptor =
+      internal_static_Log_descriptor.getNestedTypes().get(0);
+    internal_static_Log_ClocksEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Log_ClocksEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

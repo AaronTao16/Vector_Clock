@@ -71,27 +71,22 @@ public class DataStoreClient extends DataServiceGrpc.DataServiceImplBase{
     }
 
     private static void readData(String key) {
-        DataStore.Data res = dataServiceStub.read(DataStore.Data.newBuilder().setKey(key).build());
-        System.out.println(res.getVal());
+        try {
+            DataStore.Data res = dataServiceStub.read(DataStore.Data.newBuilder().setKey(key).build());
+            System.out.println(res.getVal());
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     private static void updateData(DataStore.Data data) {
-        boolean isConflict = false;
         try{
-            Iterator<DataStore.Server> res = dataServiceStub.addUpdate(data);
+            DataStore.Heartbeat res = dataServiceStub.addUpdate(data);
 
-            while (res.hasNext()){
-                DataStore.Server d = res.next();
-                if(d.getData().getKey().equals("No conflict"))
-                    continue;
-                System.out.println("---conflicts---");
-                isConflict = true;
-                System.out.println(d);
-            }
+            System.out.println(res.getData(0).getKey());
         } catch (StatusRuntimeException e){
             System.out.println("Server Error: " + e.getMessage());
         }
 
-        if(!isConflict) System.out.println("Update successfully, No Conflict");
     }
 }

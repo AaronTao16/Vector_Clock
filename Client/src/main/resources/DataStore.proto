@@ -7,18 +7,33 @@ message Data {
   string val = 2;
 }
 
-message Vector_clock {
-  repeated Server clocks = 1;
+message Heartbeat{
+  Node from = 1;
+  Node leader = 2;
+  string operation = 3;
+  repeated Data data = 4;
+  repeated Clock clocks = 5;
 }
 
-message Server {
-  string id = 1;
+message Clock{
+  Node node = 1;
   int64 clock = 2;
-  Data data = 3;
+}
+
+message Node{
+  int64 id = 1;
+  string addr = 2;
+}
+
+message Log{
+  repeated Clock clocks = 1;
+  Data data = 2;
 }
 
 service DataService {
   rpc read (Data) returns(Data);
-  rpc add_update (Data) returns (stream Server);
-  rpc propagate(Vector_clock) returns (stream Server);
+  rpc add_update (Data) returns (Heartbeat);
+  rpc send_heartbeats(Heartbeat) returns(Heartbeat);
+  rpc send_quorum_request(Heartbeat) returns (Heartbeat);
+  rpc leaderElection(Heartbeat) returns(Heartbeat);
 }
