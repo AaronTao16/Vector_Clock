@@ -3758,10 +3758,28 @@ public final class DataStore {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 clock = 1;</code>
-     * @return The clock.
+     * <code>repeated .Clock clocks = 1;</code>
      */
-    long getClock();
+    java.util.List<com.rpc.DataStore.Clock> 
+        getClocksList();
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    com.rpc.DataStore.Clock getClocks(int index);
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    int getClocksCount();
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    java.util.List<? extends com.rpc.DataStore.ClockOrBuilder> 
+        getClocksOrBuilderList();
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    com.rpc.DataStore.ClockOrBuilder getClocksOrBuilder(
+        int index);
 
     /**
      * <code>.Data data = 2;</code>
@@ -3791,6 +3809,7 @@ public final class DataStore {
       super(builder);
     }
     private Log() {
+      clocks_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -3813,6 +3832,7 @@ public final class DataStore {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3823,9 +3843,13 @@ public final class DataStore {
             case 0:
               done = true;
               break;
-            case 8: {
-
-              clock_ = input.readInt64();
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                clocks_ = new java.util.ArrayList<com.rpc.DataStore.Clock>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              clocks_.add(
+                  input.readMessage(com.rpc.DataStore.Clock.parser(), extensionRegistry));
               break;
             }
             case 18: {
@@ -3856,6 +3880,9 @@ public final class DataStore {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          clocks_ = java.util.Collections.unmodifiableList(clocks_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -3873,14 +3900,39 @@ public final class DataStore {
               com.rpc.DataStore.Log.class, com.rpc.DataStore.Log.Builder.class);
     }
 
-    public static final int CLOCK_FIELD_NUMBER = 1;
-    private long clock_;
+    public static final int CLOCKS_FIELD_NUMBER = 1;
+    private java.util.List<com.rpc.DataStore.Clock> clocks_;
     /**
-     * <code>int64 clock = 1;</code>
-     * @return The clock.
+     * <code>repeated .Clock clocks = 1;</code>
      */
-    public long getClock() {
-      return clock_;
+    public java.util.List<com.rpc.DataStore.Clock> getClocksList() {
+      return clocks_;
+    }
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    public java.util.List<? extends com.rpc.DataStore.ClockOrBuilder> 
+        getClocksOrBuilderList() {
+      return clocks_;
+    }
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    public int getClocksCount() {
+      return clocks_.size();
+    }
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    public com.rpc.DataStore.Clock getClocks(int index) {
+      return clocks_.get(index);
+    }
+    /**
+     * <code>repeated .Clock clocks = 1;</code>
+     */
+    public com.rpc.DataStore.ClockOrBuilder getClocksOrBuilder(
+        int index) {
+      return clocks_.get(index);
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
@@ -3920,8 +3972,8 @@ public final class DataStore {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clock_ != 0L) {
-        output.writeInt64(1, clock_);
+      for (int i = 0; i < clocks_.size(); i++) {
+        output.writeMessage(1, clocks_.get(i));
       }
       if (data_ != null) {
         output.writeMessage(2, getData());
@@ -3935,9 +3987,9 @@ public final class DataStore {
       if (size != -1) return size;
 
       size = 0;
-      if (clock_ != 0L) {
+      for (int i = 0; i < clocks_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, clock_);
+          .computeMessageSize(1, clocks_.get(i));
       }
       if (data_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -3958,8 +4010,8 @@ public final class DataStore {
       }
       com.rpc.DataStore.Log other = (com.rpc.DataStore.Log) obj;
 
-      if (getClock()
-          != other.getClock()) return false;
+      if (!getClocksList()
+          .equals(other.getClocksList())) return false;
       if (hasData() != other.hasData()) return false;
       if (hasData()) {
         if (!getData()
@@ -3976,9 +4028,10 @@ public final class DataStore {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLOCK_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getClock());
+      if (getClocksCount() > 0) {
+        hash = (37 * hash) + CLOCKS_FIELD_NUMBER;
+        hash = (53 * hash) + getClocksList().hashCode();
+      }
       if (hasData()) {
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + getData().hashCode();
@@ -4111,13 +4164,18 @@ public final class DataStore {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getClocksFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        clock_ = 0L;
-
+        if (clocksBuilder_ == null) {
+          clocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          clocksBuilder_.clear();
+        }
         if (dataBuilder_ == null) {
           data_ = null;
         } else {
@@ -4150,7 +4208,16 @@ public final class DataStore {
       @java.lang.Override
       public com.rpc.DataStore.Log buildPartial() {
         com.rpc.DataStore.Log result = new com.rpc.DataStore.Log(this);
-        result.clock_ = clock_;
+        int from_bitField0_ = bitField0_;
+        if (clocksBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            clocks_ = java.util.Collections.unmodifiableList(clocks_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.clocks_ = clocks_;
+        } else {
+          result.clocks_ = clocksBuilder_.build();
+        }
         if (dataBuilder_ == null) {
           result.data_ = data_;
         } else {
@@ -4204,8 +4271,31 @@ public final class DataStore {
 
       public Builder mergeFrom(com.rpc.DataStore.Log other) {
         if (other == com.rpc.DataStore.Log.getDefaultInstance()) return this;
-        if (other.getClock() != 0L) {
-          setClock(other.getClock());
+        if (clocksBuilder_ == null) {
+          if (!other.clocks_.isEmpty()) {
+            if (clocks_.isEmpty()) {
+              clocks_ = other.clocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureClocksIsMutable();
+              clocks_.addAll(other.clocks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.clocks_.isEmpty()) {
+            if (clocksBuilder_.isEmpty()) {
+              clocksBuilder_.dispose();
+              clocksBuilder_ = null;
+              clocks_ = other.clocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              clocksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getClocksFieldBuilder() : null;
+            } else {
+              clocksBuilder_.addAllMessages(other.clocks_);
+            }
+          }
         }
         if (other.hasData()) {
           mergeData(other.getData());
@@ -4238,35 +4328,246 @@ public final class DataStore {
         }
         return this;
       }
+      private int bitField0_;
 
-      private long clock_ ;
+      private java.util.List<com.rpc.DataStore.Clock> clocks_ =
+        java.util.Collections.emptyList();
+      private void ensureClocksIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          clocks_ = new java.util.ArrayList<com.rpc.DataStore.Clock>(clocks_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Clock, com.rpc.DataStore.Clock.Builder, com.rpc.DataStore.ClockOrBuilder> clocksBuilder_;
+
       /**
-       * <code>int64 clock = 1;</code>
-       * @return The clock.
+       * <code>repeated .Clock clocks = 1;</code>
        */
-      public long getClock() {
-        return clock_;
+      public java.util.List<com.rpc.DataStore.Clock> getClocksList() {
+        if (clocksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(clocks_);
+        } else {
+          return clocksBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>int64 clock = 1;</code>
-       * @param value The clock to set.
-       * @return This builder for chaining.
+       * <code>repeated .Clock clocks = 1;</code>
        */
-      public Builder setClock(long value) {
-        
-        clock_ = value;
-        onChanged();
+      public int getClocksCount() {
+        if (clocksBuilder_ == null) {
+          return clocks_.size();
+        } else {
+          return clocksBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public com.rpc.DataStore.Clock getClocks(int index) {
+        if (clocksBuilder_ == null) {
+          return clocks_.get(index);
+        } else {
+          return clocksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder setClocks(
+          int index, com.rpc.DataStore.Clock value) {
+        if (clocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClocksIsMutable();
+          clocks_.set(index, value);
+          onChanged();
+        } else {
+          clocksBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>int64 clock = 1;</code>
-       * @return This builder for chaining.
+       * <code>repeated .Clock clocks = 1;</code>
        */
-      public Builder clearClock() {
-        
-        clock_ = 0L;
-        onChanged();
+      public Builder setClocks(
+          int index, com.rpc.DataStore.Clock.Builder builderForValue) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          clocksBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder addClocks(com.rpc.DataStore.Clock value) {
+        if (clocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClocksIsMutable();
+          clocks_.add(value);
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder addClocks(
+          int index, com.rpc.DataStore.Clock value) {
+        if (clocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClocksIsMutable();
+          clocks_.add(index, value);
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder addClocks(
+          com.rpc.DataStore.Clock.Builder builderForValue) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder addClocks(
+          int index, com.rpc.DataStore.Clock.Builder builderForValue) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          clocksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder addAllClocks(
+          java.lang.Iterable<? extends com.rpc.DataStore.Clock> values) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, clocks_);
+          onChanged();
+        } else {
+          clocksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder clearClocks() {
+        if (clocksBuilder_ == null) {
+          clocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          clocksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public Builder removeClocks(int index) {
+        if (clocksBuilder_ == null) {
+          ensureClocksIsMutable();
+          clocks_.remove(index);
+          onChanged();
+        } else {
+          clocksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public com.rpc.DataStore.Clock.Builder getClocksBuilder(
+          int index) {
+        return getClocksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public com.rpc.DataStore.ClockOrBuilder getClocksOrBuilder(
+          int index) {
+        if (clocksBuilder_ == null) {
+          return clocks_.get(index);  } else {
+          return clocksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public java.util.List<? extends com.rpc.DataStore.ClockOrBuilder> 
+           getClocksOrBuilderList() {
+        if (clocksBuilder_ != null) {
+          return clocksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(clocks_);
+        }
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public com.rpc.DataStore.Clock.Builder addClocksBuilder() {
+        return getClocksFieldBuilder().addBuilder(
+            com.rpc.DataStore.Clock.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public com.rpc.DataStore.Clock.Builder addClocksBuilder(
+          int index) {
+        return getClocksFieldBuilder().addBuilder(
+            index, com.rpc.DataStore.Clock.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Clock clocks = 1;</code>
+       */
+      public java.util.List<com.rpc.DataStore.Clock.Builder> 
+           getClocksBuilderList() {
+        return getClocksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.rpc.DataStore.Clock, com.rpc.DataStore.Clock.Builder, com.rpc.DataStore.ClockOrBuilder> 
+          getClocksFieldBuilder() {
+        if (clocksBuilder_ == null) {
+          clocksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.rpc.DataStore.Clock, com.rpc.DataStore.Clock.Builder, com.rpc.DataStore.ClockOrBuilder>(
+                  clocks_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          clocks_ = null;
+        }
+        return clocksBuilder_;
       }
 
       private com.rpc.DataStore.Data data_;
@@ -4480,13 +4781,14 @@ public final class DataStore {
       "n\030\003 \001(\t\022\023\n\004data\030\004 \003(\0132\005.Data\022\026\n\006clocks\030\005" +
       " \003(\0132\006.Clock\"+\n\005Clock\022\023\n\004node\030\001 \001(\0132\005.No" +
       "de\022\r\n\005clock\030\002 \001(\003\" \n\004Node\022\n\n\002id\030\001 \001(\003\022\014\n" +
-      "\004addr\030\002 \001(\t\")\n\003Log\022\r\n\005clock\030\001 \001(\003\022\023\n\004dat" +
-      "a\030\002 \001(\0132\005.Data2\310\001\n\013DataService\022\024\n\004read\022\005" +
-      ".Data\032\005.Data\022\037\n\nadd_update\022\005.Data\032\n.Hear" +
-      "tbeat\022)\n\017send_heartbeats\022\n.Heartbeat\032\n.H" +
-      "eartbeat\022-\n\023send_quorum_request\022\n.Heartb" +
-      "eat\032\n.Heartbeat\022(\n\016leaderElection\022\n.Hear" +
-      "tbeat\032\n.HeartbeatB\t\n\007com.rpcb\006proto3"
+      "\004addr\030\002 \001(\t\"2\n\003Log\022\026\n\006clocks\030\001 \003(\0132\006.Clo" +
+      "ck\022\023\n\004data\030\002 \001(\0132\005.Data2\310\001\n\013DataService\022" +
+      "\024\n\004read\022\005.Data\032\005.Data\022\037\n\nadd_update\022\005.Da" +
+      "ta\032\n.Heartbeat\022)\n\017send_heartbeats\022\n.Hear" +
+      "tbeat\032\n.Heartbeat\022-\n\023send_quorum_request" +
+      "\022\n.Heartbeat\032\n.Heartbeat\022(\n\016leaderElecti" +
+      "on\022\n.Heartbeat\032\n.HeartbeatB\t\n\007com.rpcb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4521,7 +4823,7 @@ public final class DataStore {
     internal_static_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Log_descriptor,
-        new java.lang.String[] { "Clock", "Data", });
+        new java.lang.String[] { "Clocks", "Data", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

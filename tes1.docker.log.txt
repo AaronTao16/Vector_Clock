@@ -1,0 +1,100 @@
+------localhost:7000's TERMINAL------
+---HEARTBEAT TO localhost:7001---
+from {
+  id: 1649003016649
+  addr: "localhost:7000"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---INITIAL HEARTBEAT ERROR---
+UNAVAILABLE: io exception
+--- 2.483s ---
+
+---HEARTBEAT TO localhost:7002---
+from {
+  id: 1649003016649
+  addr: "localhost:7000"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---INITIAL HEARTBEAT ERROR---
+UNAVAILABLE: io exception
+--- 0.051s ---
+
+---AVAILABLE REPLICAS---
+{}
+LEADER: 
+id: 1649003016649
+addr: "localhost:7000"
+
+Starting server on port 7000
+Server started!
+---UPDATE REQUEST---
+key: "testData"
+val: "10"
+
+---HEARTBEAT TO localhost:7001---
+from {
+  id: 1649003016649
+  addr: "localhost:7000"
+}
+operation: "UPDATE"
+data {
+  key: "testData"
+  val: "10"
+}
+
+---localhost:7001 NOT READY TO UPDATE---
+UNAVAILABLE: io exception
+--- 0.027s ---
+
+---HEARTBEAT TO localhost:7002---
+from {
+  id: 1649003016649
+  addr: "localhost:7000"
+}
+operation: "UPDATE"
+data {
+  key: "testData"
+  val: "10"
+}
+
+---localhost:7002 NOT READY TO UPDATE---
+UNAVAILABLE: io exception
+--- 0.033s ---
+
+---NOT READY TO COMMIT---
+Update fail
+localhost:7000 current clock{localhost:7000=0, localhost:7001=0, localhost:7002=0}
+
+Update Fail: Less than 2 nodes are alive

@@ -34,6 +34,8 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
             clock.put(HOSTS.get(i)+":"+PORTS.get(i), 0L);
             Replicas.add(HOSTS.get(i)+":"+PORTS.get(i));
         }
+        System.out.println("------" + ME.getAddr() + "'s TERMINAL------");
+        // send initialization message
         DataStore.Heartbeat initialHeartbeat = DataStore.Heartbeat.newBuilder().setFrom(ME).setOperation("INIT").build();
         initialHeartbeat = formatClocks(initialHeartbeat);
         this.sendHeartbeat(Replicas, initialHeartbeat);
@@ -53,10 +55,10 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
                     responseObserver.onNext(DataStore.Heartbeat.newBuilder().setFrom(ME).setLeader(LEADER).build());
                 }
                 break;
-            case "SYNC-LOGS":
-                Iterator<DataStore.Log> iterator = logs.descendingIterator();
+            case "SYNC-LOGS": // synchronize logs
+                Iterator<DataStore.Log> iterator = logs.descendingIterator(); // iterate from tail
                 DataStore.Heartbeat res = DataStore.Heartbeat.newBuilder().setFrom(ME).setLeader(LEADER).build();
-                while(iterator.hasNext()){
+                while(iterator.hasNext()){ // compare the difference
                     DataStore.Log log = iterator.next();
                     if(log.getClocksMap().get(ME.getAddr()).getClock() <= request.getLogsList().get(0).getClocksMap().get(ME.getAddr()).getClock()){
                         break;
@@ -65,28 +67,22 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
                         res = res.toBuilder().addLogs(DataStore.Log.newBuilder().putClocks(l.getKey(), l.getValue()).setData(log.getData())).build();
                     }
                 }
-                responseObserver.onNext(res);
+                responseObserver.onNext(res); // send diff back to replica
                 break;
             case "UPDATE":
                 checkConflict(request);
                 String resMsg = "cannot commit";
 
-                if(!isConflict) {
+                if(!isConflict) { // if there is no conflict
                     this.sendHeartbeat(Replicas, DataStore.Heartbeat.newBuilder().setFrom(ME).addData(0, request.getData(0)).setOperation("UPDATE").build());
                     if(commit >= Nw) resMsg = "committed";
                     responseObserver.onNext(DataStore.Heartbeat.newBuilder().setFrom(ME).setLeader(LEADER).setOperation(resMsg).build());
-                } else
-//                    if(AvailableReplicas.isEmpty()){
-//                    resMsg += " less than " + Nw + " nodes are alive";
-//                    responseObserver.onNext(DataStore.Heartbeat.newBuilder().setFrom(ME).setLeader(LEADER).setOperation(resMsg).build());
-//                } else
-                {
+                } else {
                     resMsg += " since conflict";
                     DataStore.Heartbeat response = DataStore.Heartbeat.newBuilder().setFrom(ME).setLeader(LEADER).setOperation(resMsg).build();
                     Iterator<DataStore.Log> logIterator = logs.descendingIterator();
                     while(logIterator.hasNext()){
                         DataStore.Log log = logIterator.next();
-//                        if(log.getClock() == remote_clock_ME.getClock()) break;
                         response = response.toBuilder().addData(log.getData()).build();
                     }
                     responseObserver.onNext(response);
@@ -104,11 +100,12 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
         switch (request.getOperation()){
             case "RE-ELECTION":
                 System.out.println(AvailableReplicas);
+                // find largest id
                 String newLeader = AvailableReplicas.entrySet().stream().max((entry1, entry2) -> entry1.getValue() > entry2.getValue()? 1:-1).get().getKey();
-                DataStore.Node leader = DataStore.Node.newBuilder().setAddr(newLeader).setId(id).build();
-                if(leader.getAddr().equals(ME.getAddr()))
+                if(ME.getId() > AvailableReplicas.get(newLeader)){
                     LEADER = ME;
-                sendHeartbeat(Replicas, request.toBuilder().setFrom(ME).setOperation("IWON").build());
+                    sendHeartbeat(Replicas, request.toBuilder().setFrom(ME).setOperation("IWON").build());
+                }
 
                 responseObserver.onNext(request.toBuilder().setFrom(ME).setOperation("OK").build());
                 break;
@@ -146,7 +143,6 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
                 isCommitted = true;
                 store.put(request.getData(0).getKey(), request.getData(0).getVal());
                 // commit update, local clock+1
-//                clock.put(ME.getAddr(), clock.get(ME.getAddr())+1);
                 // synchronize local clock and remote clock
                 syncClock(request.getClocksList());
                 // store commit log in local
@@ -160,16 +156,6 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
         }
 
         responseObserver.onCompleted();
-    }
-
-    private void storeLog(DataStore.Data data) {
-        DataStore.Log newLog = DataStore.Log.newBuilder().setData(data).build();
-        for(Map.Entry<String, Long> c: clock.entrySet()){
-            newLog = newLog.toBuilder().putClocks(c.getKey(), DataStore.Clock.newBuilder().setClock(c.getValue()).setNode(DataStore.Node.newBuilder().setAddr(c.getKey()).build()).build()).build();
-        }
-        logs.add(newLog);
-        System.out.println("---LOCAL LOGS---");
-        System.out.println(logs);
     }
 
     @Override
@@ -317,13 +303,7 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
         }
     }
 
-    private DataStore.Heartbeat formatClocks(DataStore.Heartbeat heartbeat) {
-        for(Map.Entry<String, Long> c: clock.entrySet()){
-            heartbeat = heartbeat.toBuilder().addClocks(DataStore.Clock.newBuilder().setClock(c.getValue()).setNode(DataStore.Node.newBuilder().setAddr(c.getKey()).build()).build()).build();
-        }
-        return heartbeat;
-    }
-
+    // broadcast to all other replicas
     private void broadcast(String target, DataStore.Heartbeat heartbeat) {
         String host = target.split(":")[0];
         int port = Integer.parseInt(target.split(":")[1]);
@@ -338,7 +318,7 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
         switch (heartbeat.getOperation()){
             case "INIT":
                 try {
-                    DataStore.Heartbeat res = heartBeatServiceStub.sendHeartbeats(heartbeat); //.withDeadlineAfter(3000, TimeUnit.MILLISECONDS)
+                    DataStore.Heartbeat res = heartBeatServiceStub.withDeadlineAfter(3000, TimeUnit.MILLISECONDS).sendHeartbeats(heartbeat); //.withDeadlineAfter(3000, TimeUnit.MILLISECONDS)
                     AvailableReplicas.put(res.getFrom().getAddr(), res.getFrom().getId());
                     potentialLeader.add(res.getLeader());
                 } catch (Exception e){
@@ -434,6 +414,7 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
                     System.out.println(e.getMessage());
                     break;
                 }
+                channel.shutdown();
                 break;
             case "UPDATE":
                 try {
@@ -447,6 +428,7 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
                     System.out.println("---"+ target +" NOT READY TO UPDATE---");
                     System.out.println(e.getMessage());
                 }
+                channel.shutdown();
                 break;
             case "COMMIT":
                 try {
@@ -459,15 +441,17 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
                     System.out.println("---"+ target +" COMMIT FAIL---");
                     System.out.println(e.getMessage());
                 }
+                channel.shutdown();
                 break;
             default:
                 System.out.println("INVALID OPERATION");
         }
-
+        channel.shutdown();
         System.out.println("--- " + ((double)(System.currentTimeMillis()-start))/1000 + "s ---");
         System.out.println();
     }
 
+    // update -> redirect to leader
     private void redirectToLeader(DataStore.Data data) {
         if(LEADER.getAddr().equals(ME.getAddr()))
             sendHeartbeat(Replicas, DataStore.Heartbeat.newBuilder().setFrom(ME).addData(0, data).setOperation("UPDATE").build());
@@ -506,6 +490,18 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
         System.out.println(ME.getAddr() +" current clock" + clock);
     }
 
+    // store logs
+    private void storeLog(DataStore.Data data) {
+        DataStore.Log newLog = DataStore.Log.newBuilder().setData(data).build();
+        for(Map.Entry<String, Long> c: clock.entrySet()){
+            newLog = newLog.toBuilder().putClocks(c.getKey(), DataStore.Clock.newBuilder().setClock(c.getValue()).setNode(DataStore.Node.newBuilder().setAddr(c.getKey()).build()).build()).build();
+        }
+        logs.add(newLog);
+        System.out.println("---LOCAL LOGS---");
+        System.out.println(logs);
+    }
+
+    // merge local clock and remote clock
     private void syncClock(List<DataStore.Clock> clocks) {
         clock.put(ME.getAddr(), clock.get(ME.getAddr())+1);
         for(DataStore.Clock remote_clock: clocks)
@@ -514,75 +510,7 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
         System.out.println(clock);
     }
 
-
-//    @Override
-//    public void propagate(DataStore.Vector_clock clocks, StreamObserver<DataStore.Server> responseObserver) {
-//        DataStore.Server conflict = DataStore.Server.newBuilder().setId(ME.getAddr()).setData(DataStore.Data.newBuilder().setKey("No conflict").build()).build();        boolean isGreater = false, isLess = false, isConflict = false;
-//
-//        // either all local clocks <= received or received <= local
-//        for(DataStore.Server server: clocks.getClocksList()){
-//            if(clock.get(server.getId()) < server.getClock()){ // local < received
-//                if(isGreater){
-//                    conflict = conflict.toBuilder().setId(ME.getAddr())
-//                            .setData(DataStore.Data.newBuilder().setKey(server.getData().getKey()).setVal(store.getOrDefault(server.getData().getKey(), "conflict")).build())
-//                            .build();
-//                    isConflict = true;
-//                    break;
-//                } else {
-//                    isLess = true;
-//                }
-//            } else if(clock.get(server.getId()) > server.getClock()){ // local > received
-//                if(isLess){
-//                    conflict = conflict.toBuilder().setId(ME.getAddr())
-//                            .setData(DataStore.Data.newBuilder().setKey(server.getData().getKey()).setVal(store.getOrDefault(server.getData().getKey(), "conflict")).build())
-//                            .build();
-//                    isConflict = true;
-//                    break;
-//                } else {
-//                    isGreater = true;
-//                }
-//            }
-//
-//        }
-//
-//        // if no conflict update clock and update value
-//        if(!isConflict) {
-//            store.put(clocks.getClocks(0).getData().getKey(), clocks.getClocks(0).getData().getVal());
-////            clock.put(HOST+":"+PORT, clock.get(HOST+":"+PORT)+1);
-//            for(DataStore.Server server: clocks.getClocksList())
-//                clock.put(server.getId(), Math.max(server.getClock(), clock.get(server.getId())));
-//        }
-//
-//        System.out.println(ME.getAddr() +" current clock" + clock);
-//
-//        responseObserver.onNext(conflict);
-//        responseObserver.onCompleted();
-//    }
-
-    private void propagate(String host, int port){
-//        channel = ManagedChannelBuilder.forAddress(host, port)
-//                .usePlaintext()
-//                .build();
-//        DataServiceGrpc.DataServiceBlockingStub dataServiceStub = DataServiceGrpc.newBlockingStub(channel);
-//
-//        // send local clock to every replicas
-//        Iterator<DataStore.Server> res = dataServiceStub.propagate(vector_clock);
-//
-//        try{
-//            while (res.hasNext()){
-//                DataStore.Server d = res.next();
-//                if(d.getData().getKey().equals("No conflict"))
-//                    continue;
-//
-//                conflict = d;
-//            }
-//        } catch (StatusRuntimeException e){
-//            conflict = null;
-//            System.out.println("Server Error: " + host + ":"+ port + " " + e.getMessage());
-//        }
-
-    }
-
+    // store remote clock into local clock
     private void setVectorClock(DataStore.Heartbeat heartbeat){
         int index = 0;
         for (Map.Entry<String, Long> entry :clock.entrySet()) {
@@ -590,6 +518,15 @@ public class DataStoreServiceImpl extends DataServiceGrpc.DataServiceImplBase{
         }
     }
 
+    // set clock into heartbeat
+    private DataStore.Heartbeat formatClocks(DataStore.Heartbeat heartbeat) {
+        for(Map.Entry<String, Long> c: clock.entrySet()){
+            heartbeat = heartbeat.toBuilder().addClocks(DataStore.Clock.newBuilder().setClock(c.getValue()).setNode(DataStore.Node.newBuilder().setAddr(c.getKey()).build()).build()).build();
+        }
+        return heartbeat;
+    }
+
+    // all combinations of Nr out of all replicas
     public List<List<String>> subsets() {
         List<List<String>> list = new ArrayList<>();
         List<String> rep = new ArrayList<>(Replicas);

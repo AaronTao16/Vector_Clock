@@ -1,0 +1,783 @@
+------localhost:7000's TERMINAL------
+---HEARTBEAT TO localhost:7001---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---INITIAL HEARTBEAT ERROR---
+UNAVAILABLE: io exception
+--- 1.816s ---
+
+---HEARTBEAT TO localhost:7002---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---INITIAL HEARTBEAT ERROR---
+UNAVAILABLE: io exception
+--- 0.043s ---
+
+---AVAILABLE REPLICAS---
+{}
+LEADER: 
+id: 1649015234080
+addr: "localhost:7000"
+
+Starting server on port 7000
+Server started!
+------localhost:7001's TERMINAL------
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---RECEIVED HEARTBEAT---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---AVAILABLE REPLICAS---
+{localhost:7001=1649015237579}
+--- 1.919s ---
+
+---HEARTBEAT TO localhost:7002---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---INITIAL HEARTBEAT ERROR---
+UNAVAILABLE: io exception
+--- 0.06s ---
+
+---AVAILABLE REPLICAS---
+{localhost:7000=1649015234080}
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "SYNC-LOGS"
+
+---RECEIVED HEARTBEAT---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "SYNC-LOGS"
+logs {
+  clocks {
+    key: "localhost:7000"
+    value {
+    }
+  }
+  clocks {
+    key: "localhost:7001"
+    value {
+    }
+  }
+  clocks {
+    key: "localhost:7002"
+    value {
+    }
+  }
+}
+
+---SYNC LOGS HEARTBEAT ERROR---
+Index: 0
+--- 0.171s ---
+
+LEADER: 
+id: 1649015234080
+addr: "localhost:7000"
+
+Starting server on port 7001
+Server started!
+---UPDATE REQUEST---
+key: "testData"
+val: "10"
+
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "REDIRECT-TO-LEADER"
+data {
+  key: "testData"
+  val: "10"
+}
+
+---RECEIVED HEARTBEAT---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "UPDATE"
+data {
+  key: "testData"
+  val: "10"
+}
+
+---CURRENT CLOCKS---
+{localhost:7000=1, localhost:7001=0, localhost:7002=0}
+localhost:7000 current clock{localhost:7000=1, localhost:7001=0, localhost:7002=0}
+---HEARTBEAT TO localhost:7001---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "UPDATE"
+data {
+  key: "testData"
+  val: "10"
+}
+
+---RECEIVED QUORUM REQUEST---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "UPDATE"
+data {
+  key: "testData"
+  val: "10"
+}
+
+---localhost:7001 READY TO UPDATE---
+--- 0.126s ---
+
+---HEARTBEAT TO localhost:7002---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "UPDATE"
+data {
+  key: "testData"
+  val: "10"
+}
+
+---localhost:7002 NOT READY TO UPDATE---
+UNAVAILABLE: io exception
+--- 0.044s ---
+
+---READY TO COMMIT---
+---LOCAL LOGS---
+[clocks {
+  key: "localhost:7000"
+  value {
+    node {
+      addr: "localhost:7000"
+    }
+    clock: 2
+  }
+}
+clocks {
+  key: "localhost:7001"
+  value {
+    node {
+      addr: "localhost:7001"
+    }
+  }
+}
+clocks {
+  key: "localhost:7002"
+  value {
+    node {
+      addr: "localhost:7002"
+    }
+  }
+}
+data {
+  key: "testData"
+  val: "10"
+}
+]
+
+---HEARTBEAT TO localhost:7001---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "COMMIT"
+data {
+  key: "testData"
+  val: "10"
+}
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+  clock: 2
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---RECEIVED QUORUM REQUEST---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "COMMIT"
+data {
+  key: "testData"
+  val: "10"
+}
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+  clock: 2
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---CURRENT CLOCKS---
+{localhost:7000=2, localhost:7001=1, localhost:7002=0}
+---LOCAL LOGS---
+[clocks {
+  key: "localhost:7000"
+  value {
+    node {
+      addr: "localhost:7000"
+    }
+    clock: 2
+  }
+}
+clocks {
+  key: "localhost:7001"
+  value {
+    node {
+      addr: "localhost:7001"
+    }
+    clock: 1
+  }
+}
+clocks {
+  key: "localhost:7002"
+  value {
+    node {
+      addr: "localhost:7002"
+    }
+  }
+}
+data {
+  key: "testData"
+  val: "10"
+}
+]
+---COMMIT RESPONSE---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "COMMIT_FINISH"
+data {
+  key: "testData"
+  val: "10"
+}
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+  clock: 2
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+  clock: 2
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+  clock: 1
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---CURRENT CLOCKS---
+{localhost:7000=3, localhost:7001=1, localhost:7002=0}
+--- 0.081s ---
+
+
+---HEARTBEAT TO localhost:7002---
+from {
+  id: 1649015234080
+  addr: "localhost:7000"
+}
+operation: "COMMIT"
+data {
+  key: "testData"
+  val: "10"
+}
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+  clock: 2
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---localhost:7002 COMMIT FAIL---
+UNAVAILABLE: io exception
+--- 0.015s ---
+
+committed
+--- 0.361s ---
+
+update successfully
+localhost:7001 current clock{localhost:7000=2, localhost:7001=1, localhost:7002=0}
+
+Update successfully, no conflict
+---READ REQUEST---
+---LOCAL STORE---
+testData:10
+---ASK REMOTE STORE---
+1 TIME(S)
+TRY 2NODES: [localhost:7000, localhost:7002]
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+---RECEIVED QUORUM REQUEST---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+--- 0.05s ---
+
+---HEARTBEAT TO localhost:7002---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+---READ ERROR---
+UNAVAILABLE: io exception
+--- 0.018s ---
+
+2 TIME(S)
+TRY 2NODES: [localhost:7000, localhost:7001]
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+---RECEIVED QUORUM REQUEST---
+from {
+  id: 1649015237579
+  addr: "localhost:7001"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+--- 0.037s ---
+
+
+10
+------localhost:7002's TERMINAL------
+---HEARTBEAT TO localhost:7001---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---RECEIVED HEARTBEAT---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---AVAILABLE REPLICAS---
+{localhost:7001=1649015237579, localhost:7002=1649015249548}
+--- 1.205s ---
+
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---RECEIVED HEARTBEAT---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "INIT"
+clocks {
+  node {
+    addr: "localhost:7000"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7001"
+  }
+}
+clocks {
+  node {
+    addr: "localhost:7002"
+  }
+}
+
+---AVAILABLE REPLICAS---
+{localhost:7000=1649015234080, localhost:7002=1649015249548}
+--- 0.06s ---
+
+---AVAILABLE REPLICAS---
+{localhost:7000=1649015234080, localhost:7001=1649015237579}
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "SYNC-LOGS"
+
+---RECEIVED HEARTBEAT---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "SYNC-LOGS"
+logs {
+  clocks {
+    key: "localhost:7000"
+    value {
+    }
+  }
+  clocks {
+    key: "localhost:7001"
+    value {
+    }
+  }
+  clocks {
+    key: "localhost:7002"
+    value {
+    }
+  }
+}
+
+---LOCAL LOGS---
+[clocks {
+  key: "localhost:7000"
+  value {
+    node {
+      addr: "localhost:7000"
+    }
+    clock: 2
+  }
+}
+clocks {
+  key: "localhost:7001"
+  value {
+    node {
+      addr: "localhost:7001"
+    }
+  }
+}
+clocks {
+  key: "localhost:7002"
+  value {
+    node {
+      addr: "localhost:7002"
+    }
+    clock: 1
+  }
+}
+data {
+  key: "testData"
+  val: "10"
+}
+]
+---SYNC FROM LEADER---
+---STORE---
+{testData=10}
+---CLOCK---
+{localhost:7000=2, localhost:7001=0, localhost:7002=1}
+---LOGS---
+[clocks {
+  key: "localhost:7000"
+  value {
+    node {
+      addr: "localhost:7000"
+    }
+    clock: 2
+  }
+}
+clocks {
+  key: "localhost:7001"
+  value {
+    node {
+      addr: "localhost:7001"
+    }
+  }
+}
+clocks {
+  key: "localhost:7002"
+  value {
+    node {
+      addr: "localhost:7002"
+    }
+    clock: 1
+  }
+}
+data {
+  key: "testData"
+  val: "10"
+}
+]
+--- 0.122s ---
+
+LEADER: 
+id: 1649015234080
+addr: "localhost:7000"
+
+Starting server on port 7002
+Server started!
+---READ REQUEST---
+---LOCAL STORE---
+testData:10
+---ASK REMOTE STORE---
+1 TIME(S)
+TRY 2NODES: [localhost:7001, localhost:7000]
+---HEARTBEAT TO localhost:7001---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+---RECEIVED QUORUM REQUEST---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+--- 0.039s ---
+
+---HEARTBEAT TO localhost:7000---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+---RECEIVED QUORUM REQUEST---
+from {
+  id: 1649015249548
+  addr: "localhost:7002"
+}
+operation: "READ"
+data {
+  key: "testData"
+}
+
+--- 0.046s ---
+
+
+10
